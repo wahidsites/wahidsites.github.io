@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Abdul Wahid | Website Developer</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#08080a;
+    color:white;
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* NAV */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(8,8,10,0.95);
+    border-bottom:1px solid #27272d;
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:23px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#f5c542;
+}
+
+nav a{
+    margin-left:22px;
+    color:#aaa;
+    font-size:14px;
+}
+
+nav a:hover{
+    color:#f5c542;
+}
+
+
+/* HERO */
+
+.hero{
+    min-height:88vh;
+    display:flex;
+    align-items:center;
+    padding:80px 7%;
+    background:
+    radial-gradient(
+        circle at 80% 20%,
+        #30270c 0,
+        #08080a 40%
+    );
+}
+
+.hero-content{
+    max-width:850px;
+}
+
+.badge{
+    display:inline-block;
+    border:1px solid #51431a;
+    color:#f5c542;
+    background:#171409;
+    border-radius:30px;
+    padding:8px 15px;
+    font-size:13px;
+    margin-bottom:22px;
+}
+
+h1{
+    font-size:clamp(45px,8vw,85px);
+    line-height:1;
+    letter-spacing:-3px;
+    margin-bottom:25px;
+}
+
+h1 span{
+    color:#f5c542;
+}
+
+.hero p{
+    color:#aaa;
+    font-size:19px;
+    max-width:680px;
+    margin-bottom:30px;
+}
+
+.btn{
+    display:inline-block;
+    background:#f5c542;
+    color:#111;
+    font-weight:bold;
+    padding:14px 22px;
+    border-radius:9px;
+    border:0;
+    cursor:pointer;
+    margin-right:8px;
+}
+
+.btn.dark{
+    background:#18181d;
+    color:white;
+    border:1px solid #303038;
+}
+
+
+/* SECTIONS */
+
+section{
+    padding:85px 7%;
+}
+
+.section-title{
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+.section-sub{
+    color:#999;
+    max-width:650px;
+    margin-bottom:38px;
+}
+
+
+/* SERVICES */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.card{
+    background:#131317;
+    border:1px solid #27272d;
+    border-radius:18px;
+    padding:28px;
+}
+
+.card h3{
+    margin:12px 0 8px;
+}
+
+.card p{
+    color:#aaa;
+    font-size:15px;
+}
+
+.icon{
+    font-size:28px;
+}
+
+
+/* WORK */
+
+.work{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.project{
+    min-height:260px;
+    border-radius:18px;
+    padding:28px;
+    background:
+    linear-gradient(
+        135deg,
+        #1d1d22,
+        #101014
+    );
+    border:1px solid #292930;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+}
+
+.project small{
+    color:#f5c542;
+}
+
+.project h3{
+    font-size:27px;
+    margin:6px 0;
+}
+
+.project p{
+    color:#aaa;
+}
+
+
+/* PROCESS */
+
+.steps{
+    max-width:800px;
+}
+
+.step{
+    position:relative;
+    padding:24px 24px 24px 75px;
+    border-bottom:1px solid #29292f;
+}
+
+.step-number{
+    position:absolute;
+    left:20px;
+    top:20px;
+
+    width:38px;
+    height:38px;
+
+    border-radius:50%;
+
+    background:#f5c542;
+    color:#111;
+
+    font-weight:bold;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.step p{
+    color:#aaa;
+}
+
+
+/* ORDER SECTION */
+
+.order{
+    background:#111116;
+    border-top:1px solid #29292f;
+}
+
+form{
+    max-width:750px;
+
+    background:#18181d;
+
+    padding:30px;
+
+    border-radius:18px;
+
+    border:1px solid #2b2b32;
+}
+
+label{
+    display:block;
+
+    color:#bbb;
+
+    font-size:14px;
+
+    margin:17px 0 6px;
+}
+
+input,
+textarea,
+select{
+
+    width:100%;
+
+    background:#0d0d10;
+
+    color:white;
+
+    border:1px solid #33333b;
+
+    border-radius:9px;
+
+    padding:14px;
+
+    font-size:15px;
+}
+
+textarea{
+    min-height:150px;
+    resize:vertical;
+}
+
+.order-note{
+    color:#888;
+    font-size:13px;
+    margin-top:12px;
+}
+
+
+/* FOOTER */
+
+footer{
+    padding:30px 7%;
+
+    text-align:center;
+
+    color:#777;
+
+    border-top:1px solid #29292f;
+
+    font-size:13px;
+}
+
+
+/* MOBILE */
+
+@media(max-width:750px){
+
+    nav{
+        padding:16px 5%;
+    }
+
+    nav a{
+        margin-left:9px;
+        font-size:12px;
+    }
+
+    .hero{
+        padding:65px 6%;
+    }
+
+    h1{
+        font-size:52px;
+    }
+
+    .hero p{
+        font-size:17px;
+    }
+
+    section{
+        padding:65px 6%;
+    }
+
+    .grid,
+    .work{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- NAVIGATION -->
+
+<nav>
+
+    <div class="logo">
+        Abdul<span>Wahid</span>
+    </div>
+
+    <div>
+
+        <a href="#services">
+            Services
+        </a>
+
+        <a href="#work">
+            Work
+        </a>
+
+        <a href="#order">
+            Order
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- HERO -->
+
+<header class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            ✦ Website Developer
+        </div>
+
+
+        <h1>
+
+            I build websites
+            <span>for businesses.</span>
+
+        </h1>
+
+
+        <p>
+
+            I'm Abdul Wahid. I create modern,
+            mobile-friendly websites for restaurants,
+            businesses, professionals and personal brands.
+
+        </p>
+
+
+        <a
+            class="btn"
+            href="#order"
+        >
+            Order a Website
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<!-- SERVICES -->
+
+<section id="services">
+
+    <h2 class="section-title">
+        What I can build
+    </h2>
+
+
+    <p class="section-sub">
+
+        Tell me what your business needs and
+        I'll build a website around it.
+
+    </p>
+
+
+    <div class="grid">
+
+
+        <div class="card">
+
+            <div class="icon">
+                🌐
+            </div>
+
+            <h3>
+                Business Websites
+            </h3>
+
+            <p>
+
+                Professional websites for
+                companies, shops and local businesses.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <div class="icon">
+                🍔
+            </div>
+
+            <h3>
+                Restaurant Websites
+            </h3>
+
+            <p>
+
+                Menus, food photos, ordering systems
+                and WhatsApp orders.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <div class="icon">
+                👨‍💼
+            </div>
+
+            <h3>
+                Professional Websites
+            </h3>
+
+            <p>
+
+                Websites for lawyers, doctors,
+                consultants and other professionals.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <div class="icon">
+                🛍️
+            </div>
+
+            <h3>
+                Online Stores
+            </h3>
+
+            <p>
+
+                Product showcases and simple
+                ordering experiences.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <div class="icon">
+                👤
+            </div>
+
+            <h3>
+                Personal Websites
+            </h3>
+
+            <p>
+
+                Portfolios, personal brands,
+                resumes and creator websites.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <div class="icon">
+                ✨
+            </div>
+
+            <h3>
+                Custom Websites
+            </h3>
+
+            <p>
+
+                Have another idea?
+                Tell me what you want.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+
+    </div>
+
+</section>
+
+
+
+<!-- PROCESS -->
+
+<section>
+
+    <h2 class="section-title">
+        How it works
+    </h2>
+
+
+    <p class="section-sub">
+
+        Getting a website is simple.
+
+    </p>
+
+
+    <div class="steps">
+
+
+        <div class="step">
+
+            <div class="step-number">
+                1
+            </div>
+
+            <h3>
+                Choose your website
+            </h3>
+
+            <p>
+
+                Tell me what type of website
+                you want.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="step">
+
+            <div class="step-number">
+                2
+            </div>
+
+            <h3>
+                Tell me your idea
+            </h3>
+
+            <p>
+
+                Describe your business,
+                features and design ideas.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="step">
+
+            <div class="step-number">
+                3
+            </div>
+
+            <h3>
+                I build it
+            </h3>
+
+            <p>
+
+                I'll turn your idea into
+                a working website.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="step">
+
+            <div class="step-number">
+                4
+            </div>
+
+            <h3>
+                Launch
+            </h3>
+
+            <p>
+
+                After you're happy with it,
+                we get it online.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- WEBSITE ORDER -->
+
+<section
+    class="order"
+    id="order"
+>
+
+    <h2 class="section-title">
+
+        Order Your Website
+
+    </h2>
+
+
+    <p class="section-sub">
+
+        Fill this out with what you want.
+        When you submit it, I'll receive
+        your request directly on WhatsApp.
+
+    </p>
+
+
+
+    <form id="websiteOrder">
+
+
+        <label>
+            Your Name
+        </label>
+
+
+        <input
+            type="text"
+            id="customerName"
+            placeholder="Your name"
+            required
+        >
+
+
+
+        <label>
+            Business / Brand Name
+        </label>
+
+
+        <input
+            type="text"
+            id="businessName"
+            placeholder="Your business name"
+            required
+        >
+
+
+
+        <label>
+            What type of website do you want?
+        </label>
+
+
+        <select
+            id="websiteType"
+            required
+        >
+
+            <option value="">
+                Select a website type
+            </option>
+
+            <option>
+                Business Website
+            </option>
+
+            <option>
+                Restaurant / Food Website
+            </option>
+
+            <option>
+                Professional Website
+            </option>
+
+            <option>
+                Online Store
+            </option>
+
+            <option>
+                Personal / Portfolio Website
+            </option>
+
+            <option>
+                Custom Website
+            </option>
+
+        </select>
+
+
+
+        <label>
+            What do you want on the website?
+        </label>
+
+
+        <textarea
+            id="websiteDetails"
+            placeholder="Tell me everything you want: pages, features, colors, products, menu, booking system, WhatsApp ordering, etc."
+            required
+        ></textarea>
+
+
+
+        <label>
+            Anything else I should know?
+        </label>
+
+
+        <textarea
+            id="extraDetails"
+            placeholder="Optional"
+        ></textarea>
+
+
+
+        <br>
+
+
+        <button
+            type="submit"
+            class="btn"
+        >
+
+            Send Website Order on WhatsApp →
+
+        </button>
+
+
+        <p class="order-note">
+
+            Your request will open WhatsApp and
+            be sent to Abdul Wahid.
+
+        </p>
+
+
+    </form>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    © 2026 Abdul Wahid • Website Developer
+
+</footer>
+
+
+
+<!-- WHATSAPP ORDER SYSTEM -->
+
+<script>
+
+document
+.getElementById("websiteOrder")
+.addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+
+    var name =
+        document.getElementById("customerName").value;
+
+
+    var business =
+        document.getElementById("businessName").value;
+
+
+    var websiteType =
+        document.getElementById("websiteType").value;
+
+
+    var details =
+        document.getElementById("websiteDetails").value;
+
+
+    var extra =
+        document.getElementById("extraDetails").value;
+
+
+
+    var message =
+
+        "*NEW WEBSITE ORDER*%0A%0A" +
+
+        "*Customer Name:* " +
+        encodeURIComponent(name) +
+
+        "%0A%0A" +
+
+        "*Business / Brand:* " +
+        encodeURIComponent(business) +
+
+        "%0A%0A" +
+
+        "*Website Type:* " +
+        encodeURIComponent(websiteType) +
+
+        "%0A%0A" +
+
+        "*What They Want:*%0A" +
+        encodeURIComponent(details) +
+
+        "%0A%0A" +
+
+        "*Additional Information:*%0A" +
+        encodeURIComponent(
+            extra || "None"
+        );
+
+
+
+    window.open(
+
+        "https://wa.me/923219494745?text=" +
+        message,
+
+        "_blank"
+
+    );
+
+});
+
+</script>
+
+
+</body>
+</html>
