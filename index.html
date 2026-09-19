@@ -97,14 +97,6 @@ select{
         transform:translateY(0);
     }
 }
-@keyframes shimmer{
-    0%{
-        background-position:-500px;
-    }
-    100%{
-        background-position:500px;
-    }
-}
 @keyframes spin{
     from{
         transform:rotate(0deg);
@@ -578,8 +570,9 @@ footer{
 .reveal{
     opacity:0;
     transform:translateY(35px);
-    transition:opacity 0.8s ease,
-               transform 0.8s ease;
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
 }
 .reveal.visible{
     opacity:1;
@@ -593,8 +586,8 @@ footer{
         padding:16px 5%;
     }
     nav a{
-        margin-left:8px;
-        font-size:12px;
+        margin-left:7px;
+        font-size:11px;
     }
     .logo{
         font-size:19px;
@@ -635,7 +628,7 @@ footer{
 </head>
 <body>
 <!-- =========================
-     NAV
+     NAVIGATION
 ========================= -->
 <nav>
 <div class="logo">
@@ -647,6 +640,10 @@ footer{
     </a>
     <a href="#work">
         Work
+    </a>
+    <a href="#reviews">
+        Reviews
+    </a>
     <a href="#order">
         Order
     </a>
@@ -687,7 +684,10 @@ footer{
 <!-- =========================
      SERVICES
 ========================= -->
-<section id="services" class="reveal">
+<section
+    id="services"
+    class="reveal"
+>
 <h2 class="section-title">
     What I can build
 </h2>
@@ -771,6 +771,54 @@ footer{
 </div>
 </section>
 <!-- =========================
+     WORK
+========================= -->
+<section
+    id="work"
+    class="reveal"
+>
+<h2 class="section-title">
+    My Work
+</h2>
+<p class="section-sub">
+    A few examples of the type of websites
+    I can create.
+</p>
+<div class="work">
+    <a
+        class="project"
+        href="https://haroonchitrali.site"
+        target="_blank"
+    >
+        <small>
+            PROFESSIONAL WEBSITE
+        </small>
+        <h3>
+            Advocate Website
+        </h3>
+        <p>
+            A professional website built for
+            a High Court advocate.
+        </p>
+    </a>
+    <a
+        class="project"
+        href="#order"
+    >
+        <small>
+            RESTAURANT WEBSITE
+        </small>
+        <h3>
+            Restaurant / Food Website
+        </h3>
+        <p>
+            Modern food menus, ordering,
+            WhatsApp integration and more.
+        </p>
+    </a>
+</div>
+</section>
+<!-- =========================
      PROCESS
 ========================= -->
 <section class="reveal">
@@ -831,6 +879,55 @@ footer{
     </div>
 </div>
 </section>
+<!-- =========================
+     REVIEWS
+========================= -->
+<section
+    class="reviews-section reveal"
+    id="reviews"
+>
+<h2 class="section-title">
+    Client Reviews
+</h2>
+<p class="section-sub">
+    Real feedback from people I've worked with.
+    You can also leave a review below.
+</p>
+<div
+    class="review-grid"
+    id="reviewList"
+>
+    <div class="review">
+        <span class="demo-label">
+            DEMO REVIEW
+        </span>
+        <div class="stars">
+            ★★★★★
+        </div>
+        <p>
+            Abdul created a clean and professional
+            website that was exactly what I needed.
+        </p>
+        <strong>
+            Example Client
+        </strong>
+    </div>
+    <div class="review">
+        <span class="demo-label">
+            DEMO REVIEW
+        </span>
+        <div class="stars">
+            ★★★★★
+        </div>
+        <p>
+            Very easy to work with and the website
+            looked modern and worked well on mobile.
+        </p>
+        <strong>
+            Example Business
+        </strong>
+    </div>
+</div>
 <div class="review-form">
     <h3>
         Leave a Review
@@ -901,9 +998,7 @@ footer{
     your request by email. You can also
     contact me directly on WhatsApp.
 </p>
-<form
-    id="websiteOrder"
->
+<form id="websiteOrder">
     <input
         type="hidden"
         name="_subject"
@@ -914,6 +1009,7 @@ footer{
         name="_captcha"
         value="false"
     >
+    <!-- NAME -->
     <label>
         Your Name
     </label>
@@ -924,6 +1020,28 @@ footer{
         placeholder="Your name"
         required
     >
+    <!-- PHONE -->
+    <label>
+        Phone / WhatsApp Number
+    </label>
+    <input
+        type="tel"
+        name="phone"
+        id="customerPhone"
+        placeholder="e.g. 0300 1234567"
+        required
+    >
+    <!-- EMAIL -->
+    <label>
+        Email Address
+    </label>
+    <input
+        type="email"
+        name="email"
+        id="customerEmail"
+        placeholder="you@example.com"
+    >
+    <!-- BUSINESS -->
     <label>
         Business / Brand Name
     </label>
@@ -934,6 +1052,7 @@ footer{
         placeholder="Your business name"
         required
     >
+    <!-- WEBSITE TYPE -->
     <label>
         What type of website do you want?
     </label>
@@ -964,6 +1083,7 @@ footer{
             Custom Website
         </option>
     </select>
+    <!-- DETAILS -->
     <label>
         What do you want on the website?
     </label>
@@ -973,6 +1093,7 @@ footer{
         placeholder="Tell me everything you want: pages, features, colors, products, menu, booking system, WhatsApp ordering, etc."
         required
     ></textarea>
+    <!-- EXTRA -->
     <label>
         Anything else I should know?
     </label>
@@ -1036,64 +1157,75 @@ title=“Chat on WhatsApp”
 ☎
 </a>
 <!-- =========================
-     FORM SUBMISSION
+     JAVASCRIPT
 ========================= -->
 <script>
+/* =========================
+   ORDER FORM
+========================= */
 document
 .getElementById("websiteOrder")
-.addEventListener("submit", async function(event){
-    event.preventDefault();
-    const form = event.target;
-    const button =
-        document.getElementById("submitButton");
-    const success =
-        document.getElementById("successMessage");
-    button.disabled = true;
-    button.innerText =
-        "Sending Order...";
-    const formData =
-        new FormData(form);
-    try{
-        const response =
-            await fetch(
-                "https://formsubmit.co/ajax/abdulwahiddd801@gmail.com",
-                {
-                    method:"POST",
-                    body:formData,
-                    headers:{
-                        "Accept":"application/json"
-                    }
-                }
+.addEventListener(
+    "submit",
+    async function(event){
+        event.preventDefault();
+        const form =
+            event.target;
+        const button =
+            document.getElementById(
+                "submitButton"
             );
-        const data =
-            await response.json();
-        if(response.ok){
-            form.reset();
-            button.style.display =
-                "none";
-            success.style.display =
-                "block";
-            success.scrollIntoView({
-                behavior:"smooth",
-                block:"center"
-            });
-        }
-        else{
-            throw new Error(
-                "Submission failed"
+        const success =
+            document.getElementById(
+                "successMessage"
             );
-        }
-    }
-    catch(error){
         button.disabled =
-            false;
+            true;
         button.innerText =
-            "Send Website Order →";
-        alert(
-            "Something went wrong while sending the order. Please use the WhatsApp button instead."
-        );
+            "Sending Order...";
+        const formData =
+            new FormData(form);
+        try{
+            const response =
+                await fetch(
+                    "https://formsubmit.co/ajax/abdulwahiddd801@gmail.com",
+                    {
+                        method:"POST",
+                        body:formData,
+                        headers:{
+                            "Accept":
+                            "application/json"
+                        }
+                    }
+                );
+            if(response.ok){
+                form.reset();
+                button.style.display =
+                    "none";
+                success.style.display =
+                    "block";
+                success.scrollIntoView({
+                    behavior:"smooth",
+                    block:"center"
+                });
+            }
+            else{
+                throw new Error(
+                    "Submission failed"
+                );
+            }
+        }
+        catch(error){
+            button.disabled =
+                false;
+            button.innerText =
+                "Send Website Order →";
+            alert(
+                "Something went wrong. Please use the WhatsApp button instead."
+            );
+        }
     }
-});
+);
 /* =========================
    REVIEW SYSTEM
 ========================= */
@@ -1102,27 +1234,29 @@ const ratingButtons =
     document.querySelectorAll(
         "#ratingButtons button"
     );
-ratingButtons.forEach(function(button){
-    button.addEventListener(
-        "click",
-        function(){
-            selectedRating =
-                Number(
-                    this.dataset.rating
-                );
-            ratingButtons.forEach(
-                function(btn){
-                    btn.classList.remove(
-                        "selected"
+ratingButtons.forEach(
+    function(button){
+        button.addEventListener(
+            "click",
+            function(){
+                selectedRating =
+                    Number(
+                        this.dataset.rating
                     );
-                }
-            );
-            this.classList.add(
-                "selected"
-            );
-        }
-    );
-});
+                ratingButtons.forEach(
+                    function(btn){
+                        btn.classList.remove(
+                            "selected"
+                        );
+                    }
+                );
+                this.classList.add(
+                    "selected"
+                );
+            }
+        );
+    }
+);
 function submitReview(){
     const name =
         document.getElementById(
@@ -1173,7 +1307,8 @@ function submitReview(){
     document.getElementById(
         "reviewText"
     ).value = "";
-    selectedRating = 0;
+    selectedRating =
+        0;
     ratingButtons.forEach(
         function(btn){
             btn.classList.remove(
@@ -1196,29 +1331,37 @@ function displayReviews(){
                 "wahidSitesReviews"
             ) || "[]"
         );
-    reviews.forEach(function(review){
-        const card =
-            document.createElement(
-                "div"
+    reviews.forEach(
+        function(review){
+            const card =
+                document.createElement(
+                    "div"
+                );
+            card.className =
+                "review";
+            const stars =
+                "★".repeat(
+                    review.rating
+                );
+            card.innerHTML =
+                '<div class="stars">' +
+                stars +
+                '</div>' +
+                '<p>' +
+                escapeHTML(
+                    review.text
+                ) +
+                '</p>' +
+                '<strong>' +
+                escapeHTML(
+                    review.name
+                ) +
+                '</strong>';
+            list.appendChild(
+                card
             );
-        card.className =
-            "review";
-        const stars =
-            "★".repeat(
-                review.rating
-            );
-        card.innerHTML =
-            '<div class="stars">' +
-            stars +
-            '</div>' +
-            '<p>' +
-            escapeHTML(review.text) +
-            '</p>' +
-            '<strong>' +
-            escapeHTML(review.name) +
-            '</strong>';
-        list.appendChild(card);
-    });
+        }
+    );
 }
 function escapeHTML(text){
     const div =
@@ -1241,7 +1384,9 @@ const observer =
         function(entries){
             entries.forEach(
                 function(entry){
-                    if(entry.isIntersecting){
+                    if(
+                        entry.isIntersecting
+                    ){
                         entry.target.classList.add(
                             "visible"
                         );
@@ -1260,7 +1405,7 @@ revealElements.forEach(
         );
     }
 );
-/* Load saved reviews */
+/* LOAD SAVED REVIEWS */
 displayReviews();
 </script>
 </body>
