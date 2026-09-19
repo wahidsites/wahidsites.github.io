@@ -3,189 +3,318 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Abdul Wahid | Website Developer</title>
-
+<meta name="description" content="Abdul Wahid builds modern websites for businesses, restaurants, professionals and personal brands.">
 <style>
-
+/* =========================
+   RESET
+========================= */
 *{
     box-sizing:border-box;
     margin:0;
     padding:0;
 }
-
 html{
     scroll-behavior:smooth;
 }
-
 body{
     font-family:Arial,Helvetica,sans-serif;
-    background:#08080a;
-    color:white;
+    background:#050907;
+    color:#f5fff8;
     line-height:1.6;
+    overflow-x:hidden;
 }
-
+body::before{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:#00ff8830;
+    filter:blur(140px);
+    border-radius:50%;
+    top:-180px;
+    right:-180px;
+    z-index:-1;
+    animation:floatGlow 8s ease-in-out infinite alternate;
+}
+body::after{
+    content:"";
+    position:fixed;
+    width:450px;
+    height:450px;
+    background:#008f5030;
+    filter:blur(150px);
+    border-radius:50%;
+    bottom:-180px;
+    left:-180px;
+    z-index:-1;
+    animation:floatGlow 10s ease-in-out infinite alternate-reverse;
+}
 a{
     text-decoration:none;
     color:inherit;
 }
-
-/* NAV */
-
+button,
+input,
+textarea,
+select{
+    font-family:inherit;
+}
+/* =========================
+   ANIMATIONS
+========================= */
+@keyframes floatGlow{
+    0%{
+        transform:translate(0,0) scale(1);
+    }
+    100%{
+        transform:translate(70px,50px) scale(1.2);
+    }
+}
+@keyframes pulse{
+    0%,100%{
+        box-shadow:0 0 0 0 #00ff8850;
+    }
+    50%{
+        box-shadow:0 0 0 15px #00ff8800;
+    }
+}
+@keyframes glow{
+    0%,100%{
+        text-shadow:0 0 10px #00ff8840;
+    }
+    50%{
+        text-shadow:0 0 30px #00ff8890;
+    }
+}
+@keyframes slideUp{
+    from{
+        opacity:0;
+        transform:translateY(35px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+@keyframes shimmer{
+    0%{
+        background-position:-500px;
+    }
+    100%{
+        background-position:500px;
+    }
+}
+@keyframes spin{
+    from{
+        transform:rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg);
+    }
+}
+/* =========================
+   NAVIGATION
+========================= */
 nav{
     position:sticky;
     top:0;
-    z-index:100;
-    background:rgba(8,8,10,0.95);
-    border-bottom:1px solid #27272d;
+    z-index:1000;
+    background:rgba(5,9,7,0.88);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid #123c29;
     padding:18px 7%;
     display:flex;
     justify-content:space-between;
     align-items:center;
 }
-
 .logo{
     font-size:23px;
     font-weight:bold;
+    letter-spacing:-1px;
 }
-
 .logo span{
-    color:#f5c542;
+    color:#00e878;
+    animation:glow 3s infinite;
 }
-
 nav a{
     margin-left:22px;
-    color:#aaa;
+    color:#9eaaa3;
     font-size:14px;
+    transition:0.3s;
 }
-
 nav a:hover{
-    color:#f5c542;
+    color:#00ff88;
+    text-shadow:0 0 12px #00ff8866;
 }
-
-
-/* HERO */
-
+/* =========================
+   HERO
+========================= */
 .hero{
-    min-height:88vh;
+    min-height:90vh;
     display:flex;
     align-items:center;
-    padding:80px 7%;
+    padding:90px 7%;
+    position:relative;
     background:
     radial-gradient(
         circle at 80% 20%,
-        #30270c 0,
-        #08080a 40%
+        #063d25 0,
+        #050907 38%
     );
 }
-
+.hero::before{
+    content:"";
+    position:absolute;
+    width:250px;
+    height:250px;
+    border:1px solid #00ff8825;
+    border-radius:50%;
+    right:8%;
+    top:18%;
+    animation:spin 18s linear infinite;
+}
 .hero-content{
     max-width:850px;
+    animation:slideUp 1s ease;
 }
-
 .badge{
     display:inline-block;
-    border:1px solid #51431a;
-    color:#f5c542;
-    background:#171409;
+    border:1px solid #17663f;
+    color:#00ff88;
+    background:#092217;
     border-radius:30px;
     padding:8px 15px;
     font-size:13px;
     margin-bottom:22px;
+    animation:pulse 3s infinite;
 }
-
 h1{
     font-size:clamp(45px,8vw,85px);
     line-height:1;
-    letter-spacing:-3px;
+    letter-spacing:-4px;
     margin-bottom:25px;
 }
-
 h1 span{
-    color:#f5c542;
+    color:#00e878;
+    animation:glow 3s infinite;
 }
-
 .hero p{
-    color:#aaa;
+    color:#a5b0aa;
     font-size:19px;
     max-width:680px;
     margin-bottom:30px;
 }
-
+/* =========================
+   BUTTONS
+========================= */
 .btn{
     display:inline-block;
-    background:#f5c542;
-    color:#111;
+    background:#00e878;
+    color:#03100a;
     font-weight:bold;
     padding:14px 22px;
-    border-radius:9px;
+    border-radius:10px;
     border:0;
     cursor:pointer;
     margin-right:8px;
+    transition:0.3s;
+    box-shadow:0 0 0 0 #00ff8800;
 }
-
+.btn:hover{
+    transform:translateY(-4px) scale(1.03);
+    background:#31ff9d;
+    box-shadow:0 12px 35px #00ff8838;
+}
 .btn.dark{
-    background:#18181d;
+    background:#0b1510;
     color:white;
-    border:1px solid #303038;
+    border:1px solid #214532;
 }
-
-
-/* SECTIONS */
-
+.btn.dark:hover{
+    background:#10261a;
+    border-color:#00e878;
+}
+/* =========================
+   SECTIONS
+========================= */
 section{
-    padding:85px 7%;
+    padding:90px 7%;
+    position:relative;
 }
-
 .section-title{
     font-size:40px;
     margin-bottom:10px;
+    letter-spacing:-1px;
 }
-
 .section-sub{
-    color:#999;
+    color:#8e9a93;
     max-width:650px;
     margin-bottom:38px;
 }
-
-
-/* SERVICES */
-
+/* =========================
+   SERVICES
+========================= */
 .grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:18px;
 }
-
 .card{
-    background:#131317;
-    border:1px solid #27272d;
+    background:
+    linear-gradient(
+        145deg,
+        #0d1812,
+        #08100c
+    );
+    border:1px solid #173c29;
     border-radius:18px;
     padding:28px;
+    transition:0.4s;
+    position:relative;
+    overflow:hidden;
 }
-
+.card::before{
+    content:"";
+    position:absolute;
+    width:150px;
+    height:150px;
+    background:#00ff8812;
+    border-radius:50%;
+    right:-70px;
+    top:-70px;
+    transition:0.4s;
+}
+.card:hover{
+    transform:translateY(-10px);
+    border-color:#00e878;
+    box-shadow:0 20px 50px #00ff8815;
+}
+.card:hover::before{
+    transform:scale(2);
+}
 .card h3{
     margin:12px 0 8px;
 }
-
 .card p{
-    color:#aaa;
+    color:#9da9a2;
     font-size:15px;
 }
-
 .icon{
     font-size:28px;
+    transition:0.4s;
 }
-
-
-/* WORK */
-
+.card:hover .icon{
+    transform:scale(1.25) rotate(5deg);
+}
+/* =========================
+   WORK
+========================= */
 .work{
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:18px;
 }
-
 .project{
     min-height:260px;
     border-radius:18px;
@@ -193,755 +322,946 @@ section{
     background:
     linear-gradient(
         135deg,
-        #1d1d22,
-        #101014
+        #102319,
+        #07100b
     );
-    border:1px solid #292930;
-
+    border:1px solid #183d2a;
     display:flex;
     flex-direction:column;
     justify-content:flex-end;
+    transition:0.4s;
+    position:relative;
+    overflow:hidden;
 }
-
+.project::before{
+    content:"";
+    position:absolute;
+    width:250px;
+    height:250px;
+    background:#00e87810;
+    border-radius:50%;
+    top:-120px;
+    right:-100px;
+    transition:0.5s;
+}
+.project:hover{
+    transform:translateY(-8px);
+    border-color:#00e878;
+    box-shadow:0 20px 55px #00ff8817;
+}
+.project:hover::before{
+    transform:scale(1.7);
+}
 .project small{
-    color:#f5c542;
+    color:#00e878;
 }
-
 .project h3{
     font-size:27px;
     margin:6px 0;
 }
-
 .project p{
-    color:#aaa;
+    color:#9ba69f;
 }
-
-
-/* PROCESS */
-
+/* =========================
+   PROCESS
+========================= */
 .steps{
     max-width:800px;
 }
-
 .step{
     position:relative;
     padding:24px 24px 24px 75px;
-    border-bottom:1px solid #29292f;
+    border-bottom:1px solid #173326;
+    transition:0.3s;
 }
-
+.step:hover{
+    padding-left:85px;
+}
 .step-number{
     position:absolute;
     left:20px;
     top:20px;
-
     width:38px;
     height:38px;
-
     border-radius:50%;
-
-    background:#f5c542;
-    color:#111;
-
+    background:#00e878;
+    color:#03100a;
     font-weight:bold;
-
     display:flex;
     align-items:center;
     justify-content:center;
+    box-shadow:0 0 20px #00ff8830;
 }
-
 .step p{
-    color:#aaa;
+    color:#9aa69f;
 }
-
-
-/* ORDER SECTION */
-
+/* =========================
+   REVIEWS
+========================= */
+.reviews-section{
+    background:#07100b;
+    border-top:1px solid #123522;
+    border-bottom:1px solid #123522;
+}
+.review-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    margin-bottom:35px;
+}
+.review{
+    background:#0c1811;
+    border:1px solid #193c29;
+    border-radius:18px;
+    padding:25px;
+    transition:0.4s;
+}
+.review:hover{
+    transform:translateY(-7px);
+    border-color:#00e878;
+    box-shadow:0 15px 40px #00ff8815;
+}
+.stars{
+    color:#00e878;
+    font-size:18px;
+    margin-bottom:10px;
+}
+.review p{
+    color:#a7b1ab;
+    margin-bottom:15px;
+}
+.review strong{
+    color:#f2fff7;
+}
+.demo-label{
+    display:inline-block;
+    font-size:10px;
+    color:#7f9086;
+    border:1px solid #294234;
+    border-radius:20px;
+    padding:3px 8px;
+    margin-bottom:10px;
+}
+/* =========================
+   REVIEW FORM
+========================= */
+.review-form{
+    max-width:750px;
+    background:#0c1711;
+    border:1px solid #193c29;
+    padding:30px;
+    border-radius:18px;
+}
+.rating-buttons{
+    display:flex;
+    gap:8px;
+    margin-bottom:10px;
+}
+.rating-buttons button{
+    background:#101c15;
+    color:#6f7d75;
+    border:1px solid #294334;
+    border-radius:8px;
+    padding:8px 12px;
+    cursor:pointer;
+    transition:0.2s;
+}
+.rating-buttons button:hover,
+.rating-buttons button.selected{
+    background:#00e878;
+    color:#03100a;
+    border-color:#00e878;
+}
+/* =========================
+   ORDER
+========================= */
 .order{
-    background:#111116;
-    border-top:1px solid #29292f;
+    background:
+    radial-gradient(
+        circle at 90% 20%,
+        #07351f,
+        #07100b 35%
+    );
+    border-top:1px solid #183c29;
 }
-
 form{
     max-width:750px;
-
-    background:#18181d;
-
+    background:#0b1710;
     padding:30px;
-
     border-radius:18px;
-
-    border:1px solid #2b2b32;
+    border:1px solid #1b402c;
+    box-shadow:0 20px 70px #00000055;
 }
-
 label{
     display:block;
-
-    color:#bbb;
-
+    color:#b4beb8;
     font-size:14px;
-
     margin:17px 0 6px;
 }
-
 input,
 textarea,
 select{
-
     width:100%;
-
-    background:#0d0d10;
-
+    background:#060d09;
     color:white;
-
-    border:1px solid #33333b;
-
+    border:1px solid #274535;
     border-radius:9px;
-
     padding:14px;
-
     font-size:15px;
+    outline:none;
+    transition:0.3s;
 }
-
+input:focus,
+textarea:focus,
+select:focus{
+    border-color:#00e878;
+    box-shadow:0 0 0 3px #00ff8812;
+}
 textarea{
     min-height:150px;
     resize:vertical;
 }
-
 .order-note{
-    color:#888;
+    color:#7f8c84;
     font-size:13px;
     margin-top:12px;
 }
-
-
-/* FOOTER */
-
+.success-message{
+    display:none;
+    margin-top:20px;
+    padding:18px;
+    border-radius:12px;
+    background:#092519;
+    border:1px solid #00e878;
+    color:#aaffd1;
+}
+/* =========================
+   WHATSAPP FLOAT
+========================= */
+.whatsapp-float{
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:#25d366;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    z-index:2000;
+    box-shadow:0 10px 35px #25d36655;
+    animation:pulse 2.5s infinite;
+    transition:0.3s;
+}
+.whatsapp-float:hover{
+    transform:scale(1.12);
+}
+/* =========================
+   FOOTER
+========================= */
 footer{
-    padding:30px 7%;
-
+    padding:35px 7%;
     text-align:center;
-
-    color:#777;
-
-    border-top:1px solid #29292f;
-
+    color:#718078;
+    border-top:1px solid #173326;
     font-size:13px;
 }
-
-
-/* MOBILE */
-
+.footer-green{
+    color:#00e878;
+}
+/* =========================
+   SCROLL REVEAL
+========================= */
+.reveal{
+    opacity:0;
+    transform:translateY(35px);
+    transition:opacity 0.8s ease,
+               transform 0.8s ease;
+}
+.reveal.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+/* =========================
+   MOBILE
+========================= */
 @media(max-width:750px){
-
     nav{
         padding:16px 5%;
     }
-
     nav a{
-        margin-left:9px;
+        margin-left:8px;
         font-size:12px;
     }
-
+    .logo{
+        font-size:19px;
+    }
     .hero{
         padding:65px 6%;
+        min-height:82vh;
     }
-
+    .hero::before{
+        display:none;
+    }
     h1{
         font-size:52px;
+        letter-spacing:-3px;
     }
-
     .hero p{
         font-size:17px;
     }
-
     section{
         padding:65px 6%;
     }
-
+    .section-title{
+        font-size:34px;
+    }
     .grid,
-    .work{
+    .work,
+    .review-grid{
         grid-template-columns:1fr;
     }
-
+    .btn{
+        margin-bottom:10px;
+    }
+    form{
+        padding:22px;
+    }
 }
-
 </style>
 </head>
-
-
 <body>
-
-
-<!-- NAVIGATION -->
-
+<!-- =========================
+     NAV
+========================= -->
 <nav>
-
-    <div class="logo">
-        Abdul<span>Wahid</span>
-    </div>
-
-    <div>
-
-        <a href="#services">
-            Services
-        </a>
-
-        <a href="#work">
-            Work
-        </a>
-
-        <a href="#order">
-            Order
-        </a>
-
-    </div>
-
+<div class="logo">
+    Abdul<span>Wahid</span>
+</div>
+<div>
+    <a href="#services">
+        Services
+    </a>
+    <a href="#work">
+        Work
+    <a href="#order">
+        Order
+    </a>
+</div>
 </nav>
-
-
-
-<!-- HERO -->
-
+<!-- =========================
+     HERO
+========================= -->
 <header class="hero">
-
-    <div class="hero-content">
-
-        <div class="badge">
-            ✦ Website Developer
-        </div>
-
-
-        <h1>
-
-            I build websites
-            <span>for businesses.</span>
-
-        </h1>
-
-
-        <p>
-
-            I'm Abdul Wahid. I create modern,
-            mobile-friendly websites for restaurants,
-            businesses, professionals and personal brands.
-
-        </p>
-
-
-        <a
-            class="btn"
-            href="#order"
-        >
-            Order a Website
-        </a>
-
+<div class="hero-content">
+    <div class="badge">
+        ✦ Website Developer
     </div>
-
+    <h1>
+        I build websites
+        <span>for businesses.</span>
+    </h1>
+    <p>
+        I'm Abdul Wahid. I create modern,
+        mobile-friendly websites for restaurants,
+        businesses, professionals and personal brands.
+    </p>
+    <a
+        class="btn"
+        href="#order"
+    >
+        Order a Website
+    </a>
+    <a
+        class="btn dark"
+        href="https://wa.me/923219494745"
+        target="_blank"
+    >
+        Chat on WhatsApp
+    </a>
+</div>
 </header>
-
-
-
-<!-- SERVICES -->
-
-<section id="services">
-
-    <h2 class="section-title">
-        What I can build
-    </h2>
-
-
-    <p class="section-sub">
-
-        Tell me what your business needs and
-        I'll build a website around it.
-
+<!-- =========================
+     SERVICES
+========================= -->
+<section id="services" class="reveal">
+<h2 class="section-title">
+    What I can build
+</h2>
+<p class="section-sub">
+    Tell me what your business needs and
+    I'll build a website around it.
+</p>
+<div class="grid">
+    <div class="card">
+        <div class="icon">
+            🌐
+        </div>
+        <h3>
+            Business Websites
+        </h3>
+        <p>
+            Professional websites for
+            companies, shops and local businesses.
+        </p>
+    </div>
+    <div class="card">
+        <div class="icon">
+            🍔
+        </div>
+        <h3>
+            Restaurant Websites
+        </h3>
+        <p>
+            Menus, food photos, ordering systems
+            and WhatsApp orders.
+        </p>
+    </div>
+    <div class="card">
+        <div class="icon">
+            👨‍💼
+        </div>
+        <h3>
+            Professional Websites
+        </h3>
+        <p>
+            Websites for lawyers, doctors,
+            consultants and other professionals.
+        </p>
+    </div>
+    <div class="card">
+        <div class="icon">
+            🛍️
+        </div>
+        <h3>
+            Online Stores
+        </h3>
+        <p>
+            Product showcases and simple
+            ordering experiences.
+        </p>
+    </div>
+    <div class="card">
+        <div class="icon">
+            👤
+        </div>
+        <h3>
+            Personal Websites
+        </h3>
+        <p>
+            Portfolios, personal brands,
+            resumes and creator websites.
+        </p>
+    </div>
+    <div class="card">
+        <div class="icon">
+            ✨
+        </div>
+        <h3>
+            Custom Websites
+        </h3>
+        <p>
+            Have another idea?
+            Tell me what you want.
+        </p>
+    </div>
+</div>
+</section>
+<!-- =========================
+     PROCESS
+========================= -->
+<section class="reveal">
+<h2 class="section-title">
+    How it works
+</h2>
+<p class="section-sub">
+    Getting a website is simple.
+</p>
+<div class="steps">
+    <div class="step">
+        <div class="step-number">
+            1
+        </div>
+        <h3>
+            Choose your website
+        </h3>
+        <p>
+            Tell me what type of website
+            you want.
+        </p>
+    </div>
+    <div class="step">
+        <div class="step-number">
+            2
+        </div>
+        <h3>
+            Tell me your idea
+        </h3>
+        <p>
+            Describe your business,
+            features and design ideas.
+        </p>
+    </div>
+    <div class="step">
+        <div class="step-number">
+            3
+        </div>
+        <h3>
+            I build it
+        </h3>
+        <p>
+            I'll turn your idea into
+            a working website.
+        </p>
+    </div>
+    <div class="step">
+        <div class="step-number">
+            4
+        </div>
+        <h3>
+            Launch
+        </h3>
+        <p>
+            After you're happy with it,
+            we get it online.
+        </p>
+    </div>
+</div>
+</section>
+<div class="review-form">
+    <h3>
+        Leave a Review
+    </h3>
+    <label>
+        Your Name
+    </label>
+    <input
+        type="text"
+        id="reviewName"
+        placeholder="Your name"
+    >
+    <label>
+        Rating
+    </label>
+    <div
+        class="rating-buttons"
+        id="ratingButtons"
+    >
+        <button type="button" data-rating="1">
+            ★
+        </button>
+        <button type="button" data-rating="2">
+            ★★
+        </button>
+        <button type="button" data-rating="3">
+            ★★★
+        </button>
+        <button type="button" data-rating="4">
+            ★★★★
+        </button>
+        <button type="button" data-rating="5">
+            ★★★★★
+        </button>
+    </div>
+    <label>
+        Your Review
+    </label>
+    <textarea
+        id="reviewText"
+        placeholder="Tell people about your experience..."
+    ></textarea>
+    <br>
+    <button
+        class="btn"
+        type="button"
+        onclick="submitReview()"
+    >
+        Submit Review
+    </button>
+    <p class="order-note">
+        Reviews are saved on this device.
     </p>
-
-
-    <div class="grid">
-
-
-        <div class="card">
-
-            <div class="icon">
-                🌐
-            </div>
-
-            <h3>
-                Business Websites
-            </h3>
-
-            <p>
-
-                Professional websites for
-                companies, shops and local businesses.
-
-            </p>
-
-        </div>
-
-
-
-        <div class="card">
-
-            <div class="icon">
-                🍔
-            </div>
-
-            <h3>
-                Restaurant Websites
-            </h3>
-
-            <p>
-
-                Menus, food photos, ordering systems
-                and WhatsApp orders.
-
-            </p>
-
-        </div>
-
-
-
-        <div class="card">
-
-            <div class="icon">
-                👨‍💼
-            </div>
-
-            <h3>
-                Professional Websites
-            </h3>
-
-            <p>
-
-                Websites for lawyers, doctors,
-                consultants and other professionals.
-
-            </p>
-
-        </div>
-
-
-
-        <div class="card">
-
-            <div class="icon">
-                🛍️
-            </div>
-
-            <h3>
-                Online Stores
-            </h3>
-
-            <p>
-
-                Product showcases and simple
-                ordering experiences.
-
-            </p>
-
-        </div>
-
-
-
-        <div class="card">
-
-            <div class="icon">
-                👤
-            </div>
-
-            <h3>
-                Personal Websites
-            </h3>
-
-            <p>
-
-                Portfolios, personal brands,
-                resumes and creator websites.
-
-            </p>
-
-        </div>
-
-
-
-        <div class="card">
-
-            <div class="icon">
-                ✨
-            </div>
-
-            <h3>
-                Custom Websites
-            </h3>
-
-            <p>
-
-                Have another idea?
-                Tell me what you want.
-
-            </p>
-
-        </div>
-
-
-    </div>
-
+</div>
 </section>
-
-
-
-
-    </div>
-
-</section>
-
-
-
-<!-- PROCESS -->
-
-<section>
-
-    <h2 class="section-title">
-        How it works
-    </h2>
-
-
-    <p class="section-sub">
-
-        Getting a website is simple.
-
-    </p>
-
-
-    <div class="steps">
-
-
-        <div class="step">
-
-            <div class="step-number">
-                1
-            </div>
-
-            <h3>
-                Choose your website
-            </h3>
-
-            <p>
-
-                Tell me what type of website
-                you want.
-
-            </p>
-
-        </div>
-
-
-
-        <div class="step">
-
-            <div class="step-number">
-                2
-            </div>
-
-            <h3>
-                Tell me your idea
-            </h3>
-
-            <p>
-
-                Describe your business,
-                features and design ideas.
-
-            </p>
-
-        </div>
-
-
-
-        <div class="step">
-
-            <div class="step-number">
-                3
-            </div>
-
-            <h3>
-                I build it
-            </h3>
-
-            <p>
-
-                I'll turn your idea into
-                a working website.
-
-            </p>
-
-        </div>
-
-
-
-        <div class="step">
-
-            <div class="step-number">
-                4
-            </div>
-
-            <h3>
-                Launch
-            </h3>
-
-            <p>
-
-                After you're happy with it,
-                we get it online.
-
-            </p>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- WEBSITE ORDER -->
-
+<!-- =========================
+     ORDER
+========================= -->
 <section
-    class="order"
+    class="order reveal"
     id="order"
 >
-
-    <h2 class="section-title">
-
-        Order Your Website
-
-    </h2>
-
-
-    <p class="section-sub">
-
-        Fill this out with what you want.
-        When you submit it, I'll receive
-        your request directly on WhatsApp.
-
+<h2 class="section-title">
+    Order Your Website
+</h2>
+<p class="section-sub">
+    Tell me what you need and I'll receive
+    your request by email. You can also
+    contact me directly on WhatsApp.
+</p>
+<form
+    id="websiteOrder"
+>
+    <input
+        type="hidden"
+        name="_subject"
+        value="NEW WEBSITE ORDER — WahidSites"
+    >
+    <input
+        type="hidden"
+        name="_captcha"
+        value="false"
+    >
+    <label>
+        Your Name
+    </label>
+    <input
+        type="text"
+        name="name"
+        id="customerName"
+        placeholder="Your name"
+        required
+    >
+    <label>
+        Business / Brand Name
+    </label>
+    <input
+        type="text"
+        name="business"
+        id="businessName"
+        placeholder="Your business name"
+        required
+    >
+    <label>
+        What type of website do you want?
+    </label>
+    <select
+        name="websiteType"
+        id="websiteType"
+        required
+    >
+        <option value="">
+            Select a website type
+        </option>
+        <option>
+            Business Website
+        </option>
+        <option>
+            Restaurant / Food Website
+        </option>
+        <option>
+            Professional Website
+        </option>
+        <option>
+            Online Store
+        </option>
+        <option>
+            Personal / Portfolio Website
+        </option>
+        <option>
+            Custom Website
+        </option>
+    </select>
+    <label>
+        What do you want on the website?
+    </label>
+    <textarea
+        name="details"
+        id="websiteDetails"
+        placeholder="Tell me everything you want: pages, features, colors, products, menu, booking system, WhatsApp ordering, etc."
+        required
+    ></textarea>
+    <label>
+        Anything else I should know?
+    </label>
+    <textarea
+        name="extra"
+        id="extraDetails"
+        placeholder="Optional"
+    ></textarea>
+    <br>
+    <button
+        type="submit"
+        class="btn"
+        id="submitButton"
+    >
+        Send Website Order →
+    </button>
+    <a
+        href="https://wa.me/923219494745"
+        target="_blank"
+        class="btn dark"
+    >
+        Chat on WhatsApp
+    </a>
+    <p class="order-note">
+        Your order stays on this page while
+        it is being submitted.
     </p>
-
-
-
-    <form id="websiteOrder">
-
-
-        <label>
-            Your Name
-        </label>
-
-
-        <input
-            type="text"
-            id="customerName"
-            placeholder="Your name"
-            required
-        >
-
-
-
-        <label>
-            Business / Brand Name
-        </label>
-
-
-        <input
-            type="text"
-            id="businessName"
-            placeholder="Your business name"
-            required
-        >
-
-
-
-        <label>
-            What type of website do you want?
-        </label>
-
-
-        <select
-            id="websiteType"
-            required
-        >
-
-            <option value="">
-                Select a website type
-            </option>
-
-            <option>
-                Business Website
-            </option>
-
-            <option>
-                Restaurant / Food Website
-            </option>
-
-            <option>
-                Professional Website
-            </option>
-
-            <option>
-                Online Store
-            </option>
-
-            <option>
-                Personal / Portfolio Website
-            </option>
-
-            <option>
-                Custom Website
-            </option>
-
-        </select>
-
-
-
-        <label>
-            What do you want on the website?
-        </label>
-
-
-        <textarea
-            id="websiteDetails"
-            placeholder="Tell me everything you want: pages, features, colors, products, menu, booking system, WhatsApp ordering, etc."
-            required
-        ></textarea>
-
-
-
-        <label>
-            Anything else I should know?
-        </label>
-
-
-        <textarea
-            id="extraDetails"
-            placeholder="Optional"
-        ></textarea>
-
-
-
+    <div
+        class="success-message"
+        id="successMessage"
+    >
+        <strong>
+            ✅ Order received!
+        </strong>
         <br>
-
-
-        <button
-            type="submit"
-            class="btn"
-        >
-
-            Send Website Order on WhatsApp →
-
-        </button>
-
-
-        <p class="order-note">
-
-            Your request will open WhatsApp and
-            be sent to Abdul Wahid.
-
-        </p>
-
-
-    </form>
-
+        Thanks! Your website request has been
+        sent successfully. I'll get back to you soon.
+    </div>
+</form>
 </section>
-
-
-
-<!-- FOOTER -->
-
+<!-- =========================
+     FOOTER
+========================= -->
 <footer>
-
-    © 2026 Abdul Wahid • Website Developer
-
+© 2026 Abdul Wahid •
+<span class="footer-green">
+    WahidSites
+</span>
+• Website Developer
 </footer>
+<!-- =========================
+     FLOATING WHATSAPP
+========================= -->
 
+<a
+href=“https://wa.me/923219494745”
+target=”_blank”
+class=“whatsapp-float”
+title=“Chat on WhatsApp”
 
-
-<!-- WHATSAPP ORDER SYSTEM -->
-
+☎
+</a>
+<!-- =========================
+     FORM SUBMISSION
+========================= -->
 <script>
-
 document
 .getElementById("websiteOrder")
-.addEventListener("submit", function(event){
-
+.addEventListener("submit", async function(event){
     event.preventDefault();
-
-
-    var name =
-        document.getElementById("customerName").value;
-
-
-    var business =
-        document.getElementById("businessName").value;
-
-
-    var websiteType =
-        document.getElementById("websiteType").value;
-
-
-    var details =
-        document.getElementById("websiteDetails").value;
-
-
-    var extra =
-        document.getElementById("extraDetails").value;
-
-
-
-    var message =
-
-        "*NEW WEBSITE ORDER*%0A%0A" +
-
-        "*Customer Name:* " +
-        encodeURIComponent(name) +
-
-        "%0A%0A" +
-
-        "*Business / Brand:* " +
-        encodeURIComponent(business) +
-
-        "%0A%0A" +
-
-        "*Website Type:* " +
-        encodeURIComponent(websiteType) +
-
-        "%0A%0A" +
-
-        "*What They Want:*%0A" +
-        encodeURIComponent(details) +
-
-        "%0A%0A" +
-
-        "*Additional Information:*%0A" +
-        encodeURIComponent(
-            extra || "None"
+    const form = event.target;
+    const button =
+        document.getElementById("submitButton");
+    const success =
+        document.getElementById("successMessage");
+    button.disabled = true;
+    button.innerText =
+        "Sending Order...";
+    const formData =
+        new FormData(form);
+    try{
+        const response =
+            await fetch(
+                "https://formsubmit.co/ajax/abdulwahiddd801@gmail.com",
+                {
+                    method:"POST",
+                    body:formData,
+                    headers:{
+                        "Accept":"application/json"
+                    }
+                }
+            );
+        const data =
+            await response.json();
+        if(response.ok){
+            form.reset();
+            button.style.display =
+                "none";
+            success.style.display =
+                "block";
+            success.scrollIntoView({
+                behavior:"smooth",
+                block:"center"
+            });
+        }
+        else{
+            throw new Error(
+                "Submission failed"
+            );
+        }
+    }
+    catch(error){
+        button.disabled =
+            false;
+        button.innerText =
+            "Send Website Order →";
+        alert(
+            "Something went wrong while sending the order. Please use the WhatsApp button instead."
         );
-
-
-
-    window.open(
-
-        "https://wa.me/923219494745?text=" +
-        message,
-
-        "_blank"
-
-    );
-
+    }
 });
-
+/* =========================
+   REVIEW SYSTEM
+========================= */
+let selectedRating = 0;
+const ratingButtons =
+    document.querySelectorAll(
+        "#ratingButtons button"
+    );
+ratingButtons.forEach(function(button){
+    button.addEventListener(
+        "click",
+        function(){
+            selectedRating =
+                Number(
+                    this.dataset.rating
+                );
+            ratingButtons.forEach(
+                function(btn){
+                    btn.classList.remove(
+                        "selected"
+                    );
+                }
+            );
+            this.classList.add(
+                "selected"
+            );
+        }
+    );
+});
+function submitReview(){
+    const name =
+        document.getElementById(
+            "reviewName"
+        ).value.trim();
+    const text =
+        document.getElementById(
+            "reviewText"
+        ).value.trim();
+    if(!name){
+        alert(
+            "Please enter your name."
+        );
+        return;
+    }
+    if(!selectedRating){
+        alert(
+            "Please choose a rating."
+        );
+        return;
+    }
+    if(!text){
+        alert(
+            "Please write your review."
+        );
+        return;
+    }
+    const review = {
+        name:name,
+        rating:selectedRating,
+        text:text
+    };
+    const reviews =
+        JSON.parse(
+            localStorage.getItem(
+                "wahidSitesReviews"
+            ) || "[]"
+        );
+    reviews.push(review);
+    localStorage.setItem(
+        "wahidSitesReviews",
+        JSON.stringify(reviews)
+    );
+    displayReviews();
+    document.getElementById(
+        "reviewName"
+    ).value = "";
+    document.getElementById(
+        "reviewText"
+    ).value = "";
+    selectedRating = 0;
+    ratingButtons.forEach(
+        function(btn){
+            btn.classList.remove(
+                "selected"
+            );
+        }
+    );
+    alert(
+        "Thank you for your review! ⭐"
+    );
+}
+function displayReviews(){
+    const list =
+        document.getElementById(
+            "reviewList"
+        );
+    const reviews =
+        JSON.parse(
+            localStorage.getItem(
+                "wahidSitesReviews"
+            ) || "[]"
+        );
+    reviews.forEach(function(review){
+        const card =
+            document.createElement(
+                "div"
+            );
+        card.className =
+            "review";
+        const stars =
+            "★".repeat(
+                review.rating
+            );
+        card.innerHTML =
+            '<div class="stars">' +
+            stars +
+            '</div>' +
+            '<p>' +
+            escapeHTML(review.text) +
+            '</p>' +
+            '<strong>' +
+            escapeHTML(review.name) +
+            '</strong>';
+        list.appendChild(card);
+    });
+}
+function escapeHTML(text){
+    const div =
+        document.createElement(
+            "div"
+        );
+    div.textContent =
+        text;
+    return div.innerHTML;
+}
+/* =========================
+   SCROLL ANIMATIONS
+========================= */
+const revealElements =
+    document.querySelectorAll(
+        ".reveal"
+    );
+const observer =
+    new IntersectionObserver(
+        function(entries){
+            entries.forEach(
+                function(entry){
+                    if(entry.isIntersecting){
+                        entry.target.classList.add(
+                            "visible"
+                        );
+                    }
+                }
+            );
+        },
+        {
+            threshold:0.12
+        }
+    );
+revealElements.forEach(
+    function(element){
+        observer.observe(
+            element
+        );
+    }
+);
+/* Load saved reviews */
+displayReviews();
 </script>
-
-
 </body>
 </html>
