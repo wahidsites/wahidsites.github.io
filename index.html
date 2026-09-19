@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Abdul Wahid | Website Developer</title>
-<meta name="description" content="Abdul Wahid builds modern websites for businesses, restaurants, professionals and personal brands.">
+<title>Abdul Wahid | WahidSites</title>
+<meta name="description" content="Abdul Wahid creates modern, futuristic websites for businesses, restaurants, professionals and personal brands.">
 <style>
 /* =========================
    RESET
@@ -19,36 +19,11 @@ html{
 }
 body{
     font-family:Arial,Helvetica,sans-serif;
-    background:#050907;
+    background:#030705;
     color:#f5fff8;
     line-height:1.6;
     overflow-x:hidden;
-}
-body::before{
-    content:"";
-    position:fixed;
-    width:500px;
-    height:500px;
-    background:#00ff8830;
-    filter:blur(140px);
-    border-radius:50%;
-    top:-180px;
-    right:-180px;
-    z-index:-1;
-    animation:floatGlow 8s ease-in-out infinite alternate;
-}
-body::after{
-    content:"";
-    position:fixed;
-    width:450px;
-    height:450px;
-    background:#008f5030;
-    filter:blur(150px);
-    border-radius:50%;
-    bottom:-180px;
-    left:-180px;
-    z-index:-1;
-    animation:floatGlow 10s ease-in-out infinite alternate-reverse;
+    cursor:default;
 }
 a{
     text-decoration:none;
@@ -61,6 +36,35 @@ select{
     font-family:inherit;
 }
 /* =========================
+   FUTURISTIC BACKGROUND
+========================= */
+body::before{
+    content:"";
+    position:fixed;
+    width:600px;
+    height:600px;
+    background:#00ff8830;
+    filter:blur(150px);
+    border-radius:50%;
+    top:-250px;
+    right:-220px;
+    z-index:-5;
+    animation:floatGlow 10s ease-in-out infinite alternate;
+}
+body::after{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:#008f5030;
+    filter:blur(150px);
+    border-radius:50%;
+    bottom:-250px;
+    left:-220px;
+    z-index:-5;
+    animation:floatGlow 12s ease-in-out infinite alternate-reverse;
+}
+/* =========================
    ANIMATIONS
 ========================= */
 @keyframes floatGlow{
@@ -68,33 +72,45 @@ select{
         transform:translate(0,0) scale(1);
     }
     100%{
-        transform:translate(70px,50px) scale(1.2);
-    }
-}
-@keyframes pulse{
-    0%,100%{
-        box-shadow:0 0 0 0 #00ff8850;
-    }
-    50%{
-        box-shadow:0 0 0 15px #00ff8800;
+        transform:translate(80px,60px) scale(1.25);
     }
 }
 @keyframes glow{
     0%,100%{
-        text-shadow:0 0 10px #00ff8840;
+        text-shadow:
+        0 0 8px #00ff8840,
+        0 0 20px #00ff8820;
     }
     50%{
-        text-shadow:0 0 30px #00ff8890;
+        text-shadow:
+        0 0 15px #00ff8880,
+        0 0 40px #00ff8840;
+    }
+}
+@keyframes pulse{
+    0%,100%{
+        box-shadow:0 0 0 0 #00ff8830;
+    }
+    50%{
+        box-shadow:0 0 0 14px #00ff8800;
     }
 }
 @keyframes slideUp{
     from{
         opacity:0;
-        transform:translateY(35px);
+        transform:translateY(45px);
     }
     to{
         opacity:1;
         transform:translateY(0);
+    }
+}
+@keyframes fadeIn{
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
     }
 }
 @keyframes spin{
@@ -105,6 +121,86 @@ select{
         transform:rotate(360deg);
     }
 }
+@keyframes reverseSpin{
+    from{
+        transform:rotate(360deg);
+    }
+    to{
+        transform:rotate(0deg);
+    }
+}
+@keyframes scan{
+    0%{
+        transform:translateY(-100%);
+        opacity:0;
+    }
+    15%{
+        opacity:1;
+    }
+    85%{
+        opacity:1;
+    }
+    100%{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+}
+@keyframes gridMove{
+    from{
+        background-position:0 0;
+    }
+    to{
+        background-position:0 80px;
+    }
+}
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-12px);
+    }
+}
+@keyframes blink{
+    0%,45%{
+        opacity:1;
+    }
+    50%,100%{
+        opacity:0;
+    }
+}
+@keyframes borderFlow{
+    0%{
+        background-position:0% 50%;
+    }
+    50%{
+        background-position:100% 50%;
+    }
+    100%{
+        background-position:0% 50%;
+    }
+}
+/* =========================
+   PAGE SCAN LINE
+========================= */
+body{
+    position:relative;
+}
+body .scanline{
+    position:fixed;
+    left:0;
+    top:0;
+    width:100%;
+    height:2px;
+    background:#00ff88;
+    box-shadow:
+        0 0 12px #00ff88,
+        0 0 30px #00ff88;
+    opacity:.35;
+    z-index:9999;
+    pointer-events:none;
+    animation:scan 8s linear infinite;
+}
 /* =========================
    NAVIGATION
 ========================= */
@@ -112,82 +208,161 @@ nav{
     position:sticky;
     top:0;
     z-index:1000;
-    background:rgba(5,9,7,0.88);
-    backdrop-filter:blur(18px);
+    background:rgba(3,7,5,.72);
+    backdrop-filter:blur(22px);
     border-bottom:1px solid #123c29;
-    padding:18px 7%;
+    padding:15px 7%;
     display:flex;
     justify-content:space-between;
     align-items:center;
+    box-shadow:
+        0 10px 40px #00000030;
 }
 .logo{
-    font-size:23px;
+    width:150px;
+    height:48px;
+    display:flex;
+    align-items:center;
+}
+.logo img{
+    max-width:150px;
+    max-height:48px;
+    object-fit:contain;
+}
+.logo-placeholder{
+    font-size:22px;
     font-weight:bold;
     letter-spacing:-1px;
 }
-.logo span{
+.logo-placeholder span{
     color:#00e878;
-    animation:glow 3s infinite;
+}
+nav .links{
+    display:flex;
+    align-items:center;
 }
 nav a{
-    margin-left:22px;
-    color:#9eaaa3;
-    font-size:14px;
-    transition:0.3s;
+    margin-left:25px;
+    color:#8f9d95;
+    font-size:13px;
+    transition:.3s;
+    position:relative;
+}
+nav a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-7px;
+    width:0;
+    height:1px;
+    background:#00ff88;
+    box-shadow:0 0 8px #00ff88;
+    transition:.3s;
 }
 nav a:hover{
     color:#00ff88;
     text-shadow:0 0 12px #00ff8866;
 }
+nav a:hover::after{
+    width:100%;
+}
 /* =========================
    HERO
 ========================= */
 .hero{
-    min-height:90vh;
+    min-height:92vh;
     display:flex;
     align-items:center;
-    padding:90px 7%;
+    padding:100px 7%;
     position:relative;
+    overflow:hidden;
     background:
-    radial-gradient(
-        circle at 80% 20%,
-        #063d25 0,
-        #050907 38%
-    );
+        radial-gradient(
+            circle at 75% 35%,
+            #06472a 0,
+            #031008 28%,
+            #030705 65%
+        );
 }
+/* Futuristic grid */
 .hero::before{
     content:"";
     position:absolute;
-    width:250px;
-    height:250px;
-    border:1px solid #00ff8825;
+    inset:0;
+    background-image:
+        linear-gradient(#00ff8810 1px,transparent 1px),
+        linear-gradient(90deg,#00ff8810 1px,transparent 1px);
+    background-size:55px 55px;
+    mask-image:
+        linear-gradient(
+            to bottom,
+            transparent,
+            black 25%,
+            black 75%,
+            transparent
+        );
+    animation:gridMove 8s linear infinite;
+    pointer-events:none;
+}
+/* Massive orbital ring */
+.hero::after{
+    content:"";
+    position:absolute;
+    width:650px;
+    height:650px;
+    right:-190px;
+    top:50%;
+    transform:translateY(-50%);
+    border:1px solid #00ff8820;
     border-radius:50%;
-    right:8%;
-    top:18%;
-    animation:spin 18s linear infinite;
+    box-shadow:
+        0 0 80px #00ff8810,
+        inset 0 0 80px #00ff8808;
+    animation:spin 25s linear infinite;
+    pointer-events:none;
 }
 .hero-content{
     max-width:850px;
+    position:relative;
+    z-index:5;
     animation:slideUp 1s ease;
 }
+/* Decorative futuristic text */
+.hero-kicker{
+    color:#60736a;
+    font-size:11px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    margin-bottom:18px;
+}
 .badge{
-    display:inline-block;
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
     border:1px solid #17663f;
     color:#00ff88;
     background:#092217;
     border-radius:30px;
     padding:8px 15px;
-    font-size:13px;
-    margin-bottom:22px;
+    font-size:12px;
+    margin-bottom:25px;
     animation:pulse 3s infinite;
 }
-h1{
-    font-size:clamp(45px,8vw,85px);
-    line-height:1;
-    letter-spacing:-4px;
-    margin-bottom:25px;
+.badge-dot{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#00ff88;
+    box-shadow:0 0 12px #00ff88;
+    animation:blink 1.5s infinite;
 }
-h1 span{
+h1{
+    font-size:clamp(48px,8vw,92px);
+    line-height:.95;
+    letter-spacing:-5px;
+    margin-bottom:28px;
+}
+h1 .green{
     color:#00e878;
     animation:glow 3s infinite;
 }
@@ -195,7 +370,56 @@ h1 span{
     color:#a5b0aa;
     font-size:19px;
     max-width:680px;
-    margin-bottom:30px;
+    margin-bottom:34px;
+}
+.hero-status{
+    display:flex;
+    gap:25px;
+    margin-top:35px;
+    color:#66756d;
+    font-size:11px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+.hero-status span{
+    color:#00e878;
+}
+/* =========================
+   HERO ORB
+========================= */
+.hero-orb{
+    position:absolute;
+    right:12%;
+    top:50%;
+    width:210px;
+    height:210px;
+    transform:translateY(-50%);
+    border-radius:50%;
+    border:1px solid #00ff8840;
+    box-shadow:
+        0 0 50px #00ff8820,
+        inset 0 0 50px #00ff8815;
+    animation:float 5s ease-in-out infinite;
+    z-index:2;
+}
+.hero-orb::before{
+    content:"";
+    position:absolute;
+    inset:22px;
+    border:1px solid #00ff8860;
+    border-radius:50%;
+    animation:reverseSpin 12s linear infinite;
+}
+.hero-orb::after{
+    content:"";
+    position:absolute;
+    inset:55px;
+    border-radius:50%;
+    background:#00ff8820;
+    box-shadow:
+        0 0 50px #00ff8840,
+        0 0 100px #00ff8820;
+    animation:pulse 2.5s infinite;
 }
 /* =========================
    BUTTONS
@@ -205,21 +429,43 @@ h1 span{
     background:#00e878;
     color:#03100a;
     font-weight:bold;
-    padding:14px 22px;
-    border-radius:10px;
-    border:0;
+    padding:14px 23px;
+    border-radius:9px;
+    border:1px solid #00ff88;
     cursor:pointer;
     margin-right:8px;
-    transition:0.3s;
+    transition:.35s;
+    position:relative;
+    overflow:hidden;
     box-shadow:0 0 0 0 #00ff8800;
 }
+.btn::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:100%;
+    height:100%;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #ffffff55,
+        transparent
+    );
+    transition:.5s;
+}
+.btn:hover::before{
+    left:120%;
+}
 .btn:hover{
-    transform:translateY(-4px) scale(1.03);
+    transform:translateY(-5px) scale(1.04);
     background:#31ff9d;
-    box-shadow:0 12px 35px #00ff8838;
+    box-shadow:
+        0 12px 40px #00ff8838,
+        0 0 25px #00ff8820;
 }
 .btn.dark{
-    background:#0b1510;
+    background:#08120d;
     color:white;
     border:1px solid #214532;
 }
@@ -231,18 +477,35 @@ h1 span{
    SECTIONS
 ========================= */
 section{
-    padding:90px 7%;
+    padding:100px 7%;
     position:relative;
 }
 .section-title{
-    font-size:40px;
+    font-size:42px;
     margin-bottom:10px;
-    letter-spacing:-1px;
+    letter-spacing:-1.5px;
 }
 .section-sub{
     color:#8e9a93;
     max-width:650px;
-    margin-bottom:38px;
+    margin-bottom:42px;
+}
+/* =========================
+   SECTION DECORATION
+========================= */
+section::before{
+    content:"";
+    position:absolute;
+    width:120px;
+    height:1px;
+    top:45px;
+    left:7%;
+    background:linear-gradient(
+        90deg,
+        #00e878,
+        transparent
+    );
+    opacity:.5;
 }
 /* =========================
    SERVICES
@@ -254,36 +517,56 @@ section{
 }
 .card{
     background:
-    linear-gradient(
-        145deg,
-        #0d1812,
-        #08100c
-    );
+        linear-gradient(
+            145deg,
+            #0d1812,
+            #08100c
+        );
     border:1px solid #173c29;
     border-radius:18px;
-    padding:28px;
-    transition:0.4s;
+    padding:30px;
+    transition:.45s;
     position:relative;
     overflow:hidden;
 }
 .card::before{
     content:"";
     position:absolute;
-    width:150px;
-    height:150px;
+    width:170px;
+    height:170px;
     background:#00ff8812;
     border-radius:50%;
-    right:-70px;
-    top:-70px;
-    transition:0.4s;
+    right:-90px;
+    top:-90px;
+    transition:.5s;
+}
+.card::after{
+    content:"";
+    position:absolute;
+    left:-100%;
+    top:0;
+    width:70%;
+    height:1px;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #00ff88,
+        transparent
+    );
+    transition:.6s;
 }
 .card:hover{
-    transform:translateY(-10px);
+    transform:translateY(-12px) scale(1.015);
     border-color:#00e878;
-    box-shadow:0 20px 50px #00ff8815;
+    box-shadow:
+        0 25px 60px #00ff8815,
+        0 0 25px #00ff8808;
 }
 .card:hover::before{
-    transform:scale(2);
+    transform:scale(2.2);
+}
+.card:hover::after{
+    left:120%;
 }
 .card h3{
     margin:12px 0 8px;
@@ -294,10 +577,11 @@ section{
 }
 .icon{
     font-size:28px;
-    transition:0.4s;
+    transition:.45s;
 }
 .card:hover .icon{
-    transform:scale(1.25) rotate(5deg);
+    transform:scale(1.3) rotate(8deg);
+    filter:drop-shadow(0 0 10px #00ff88);
 }
 /* =========================
    WORK
@@ -308,48 +592,66 @@ section{
     gap:18px;
 }
 .project{
-    min-height:260px;
+    min-height:280px;
     border-radius:18px;
-    padding:28px;
+    padding:30px;
     background:
-    linear-gradient(
-        135deg,
-        #102319,
-        #07100b
-    );
+        linear-gradient(
+            135deg,
+            #102319,
+            #07100b
+        );
     border:1px solid #183d2a;
     display:flex;
     flex-direction:column;
     justify-content:flex-end;
-    transition:0.4s;
+    transition:.45s;
     position:relative;
     overflow:hidden;
 }
 .project::before{
     content:"";
     position:absolute;
-    width:250px;
-    height:250px;
+    width:300px;
+    height:300px;
     background:#00e87810;
     border-radius:50%;
-    top:-120px;
+    top:-150px;
     right:-100px;
-    transition:0.5s;
+    transition:.6s;
+}
+.project::after{
+    content:"↗";
+    position:absolute;
+    right:28px;
+    top:25px;
+    font-size:25px;
+    color:#00e878;
+    opacity:.5;
+    transition:.3s;
 }
 .project:hover{
-    transform:translateY(-8px);
+    transform:translateY(-10px);
     border-color:#00e878;
-    box-shadow:0 20px 55px #00ff8817;
+    box-shadow:
+        0 25px 65px #00ff8817,
+        inset 0 0 40px #00ff8808;
 }
 .project:hover::before{
-    transform:scale(1.7);
+    transform:scale(1.8);
+}
+.project:hover::after{
+    transform:translate(5px,-5px);
+    opacity:1;
 }
 .project small{
     color:#00e878;
+    letter-spacing:2px;
+    font-size:10px;
 }
 .project h3{
-    font-size:27px;
-    margin:6px 0;
+    font-size:28px;
+    margin:7px 0;
 }
 .project p{
     color:#9ba69f;
@@ -362,19 +664,20 @@ section{
 }
 .step{
     position:relative;
-    padding:24px 24px 24px 75px;
+    padding:25px 25px 25px 78px;
     border-bottom:1px solid #173326;
-    transition:0.3s;
+    transition:.35s;
 }
 .step:hover{
-    padding-left:85px;
+    padding-left:90px;
+    background:#00ff8805;
 }
 .step-number{
     position:absolute;
     left:20px;
     top:20px;
-    width:38px;
-    height:38px;
+    width:40px;
+    height:40px;
     border-radius:50%;
     background:#00e878;
     color:#03100a;
@@ -382,7 +685,14 @@ section{
     display:flex;
     align-items:center;
     justify-content:center;
-    box-shadow:0 0 20px #00ff8830;
+    box-shadow:
+        0 0 20px #00ff8830;
+    transition:.3s;
+}
+.step:hover .step-number{
+    transform:scale(1.15);
+    box-shadow:
+        0 0 30px #00ff8860;
 }
 .step p{
     color:#9aa69f;
@@ -406,12 +716,14 @@ section{
     border:1px solid #193c29;
     border-radius:18px;
     padding:25px;
-    transition:0.4s;
+    transition:.4s;
+    position:relative;
 }
 .review:hover{
-    transform:translateY(-7px);
+    transform:translateY(-8px);
     border-color:#00e878;
-    box-shadow:0 15px 40px #00ff8815;
+    box-shadow:
+        0 20px 50px #00ff8815;
 }
 .stars{
     color:#00e878;
@@ -443,6 +755,8 @@ section{
     border:1px solid #193c29;
     padding:30px;
     border-radius:18px;
+    box-shadow:
+        0 20px 60px #00000035;
 }
 .rating-buttons{
     display:flex;
@@ -456,24 +770,25 @@ section{
     border-radius:8px;
     padding:8px 12px;
     cursor:pointer;
-    transition:0.2s;
+    transition:.2s;
 }
 .rating-buttons button:hover,
 .rating-buttons button.selected{
     background:#00e878;
     color:#03100a;
     border-color:#00e878;
+    box-shadow:0 0 15px #00ff8830;
 }
 /* =========================
    ORDER
 ========================= */
 .order{
     background:
-    radial-gradient(
-        circle at 90% 20%,
-        #07351f,
-        #07100b 35%
-    );
+        radial-gradient(
+            circle at 90% 20%,
+            #07351f,
+            #07100b 35%
+        );
     border-top:1px solid #183c29;
 }
 form{
@@ -482,7 +797,8 @@ form{
     padding:30px;
     border-radius:18px;
     border:1px solid #1b402c;
-    box-shadow:0 20px 70px #00000055;
+    box-shadow:
+        0 20px 70px #00000055;
 }
 label{
     display:block;
@@ -501,13 +817,15 @@ select{
     padding:14px;
     font-size:15px;
     outline:none;
-    transition:0.3s;
+    transition:.3s;
 }
 input:focus,
 textarea:focus,
 select:focus{
     border-color:#00e878;
-    box-shadow:0 0 0 3px #00ff8812;
+    box-shadow:
+        0 0 0 3px #00ff8812,
+        0 0 20px #00ff8808;
 }
 textarea{
     min-height:150px;
@@ -526,9 +844,10 @@ textarea{
     background:#092519;
     border:1px solid #00e878;
     color:#aaffd1;
+    box-shadow:0 0 30px #00ff8815;
 }
 /* =========================
-   WHATSAPP FLOAT
+   WHATSAPP
 ========================= */
 .whatsapp-float{
     position:fixed;
@@ -542,14 +861,18 @@ textarea{
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:28px;
+    font-size:27px;
     z-index:2000;
-    box-shadow:0 10px 35px #25d36655;
+    box-shadow:
+        0 10px 35px #25d36655;
     animation:pulse 2.5s infinite;
-    transition:0.3s;
+    transition:.3s;
 }
 .whatsapp-float:hover{
-    transform:scale(1.12);
+    transform:scale(1.15);
+    box-shadow:
+        0 0 30px #25d366,
+        0 10px 40px #25d36655;
 }
 /* =========================
    FOOTER
@@ -569,10 +892,10 @@ footer{
 ========================= */
 .reveal{
     opacity:0;
-    transform:translateY(35px);
+    transform:translateY(45px);
     transition:
-        opacity 0.8s ease,
-        transform 0.8s ease;
+        opacity .9s ease,
+        transform .9s cubic-bezier(.2,.8,.2,1);
 }
 .reveal.visible{
     opacity:1;
@@ -581,98 +904,190 @@ footer{
 /* =========================
    MOBILE
 ========================= */
-@media(max-width:750px){
+@media(max-width:900px){
     nav{
-        padding:16px 5%;
+        padding:15px 5%;
     }
-    nav a{
-        margin-left:7px;
+    nav .links a{
+        margin-left:10px;
         font-size:11px;
     }
-    .logo{
-        font-size:19px;
-    }
     .hero{
-        padding:65px 6%;
-        min-height:82vh;
+        padding:80px 6%;
     }
-    .hero::before{
-        display:none;
-    }
-    h1{
-        font-size:52px;
-        letter-spacing:-3px;
-    }
-    .hero p{
-        font-size:17px;
-    }
-    section{
-        padding:65px 6%;
-    }
-    .section-title{
-        font-size:34px;
+    .hero-orb{
+        opacity:.25;
+        right:-80px;
     }
     .grid,
     .work,
     .review-grid{
         grid-template-columns:1fr;
     }
-    .btn{
-        margin-bottom:10px;
+    section{
+        padding:75px 6%;
+    }
+    section::before{
+        left:6%;
+    }
+}
+@media(max-width:600px){
+    nav{
+        padding:13px 5%;
+    }
+    .logo{
+        width:110px;
+        height:40px;
+    }
+    .logo img{
+        max-width:110px;
+        max-height:40px;
+    }
+    nav .links{
+        gap:7px;
+    }
+    nav a{
+        margin-left:5px !important;
+        font-size:9px !important;
+    }
+    .hero{
+        min-height:88vh;
+        padding:75px 6%;
+    }
+    .hero::after{
+        width:450px;
+        height:450px;
+        right:-250px;
+    }
+    .hero-orb{
+        width:160px;
+        height:160px;
+        right:-70px;
+        opacity:.2;
+    }
+    .hero-kicker{
+        font-size:9px;
+        letter-spacing:3px;
+    }
+    h1{
+        font-size:52px;
+        letter-spacing:-4px;
+    }
+    .hero p{
+        font-size:16px;
+    }
+    .hero-status{
+        flex-direction:column;
+        gap:8px;
+    }
+    .section-title{
+        font-size:34px;
     }
     form{
         padding:22px;
+    }
+    .btn{
+        margin-bottom:10px;
+    }
+}
+/* =========================
+   REDUCE MOTION
+========================= */
+@media(prefers-reduced-motion:reduce){
+    *,
+    *::before,
+    *::after{
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        scroll-behavior:auto !important;
+        transition-duration:.01ms !important;
     }
 }
 </style>
 </head>
 <body>
+<div class="scanline"></div>
 <!-- =========================
      NAVIGATION
 ========================= -->
 <nav>
 <div class="logo">
-    Abdul<span>Wahid</span>
+<!--
+PUT YOUR LOGO HERE
+Rename your logo file to:
+logo.png
+Then place it in the same folder as this HTML file.
+-->
+<img
+    src="logo.png"
+    alt="WahidSites Logo"
+>
 </div>
-<div>
-    <a href="#services">
-        Services
-    </a>
-    <a href="#order">
-        Order
-    </a>
+<div class="links">
+<a href="#services">
+    Services
+</a>
+<a href="#work">
+    Work
+</a>
+<a href="#reviews">
+    Reviews
+</a>
+<a href="#order">
+    Order
+</a>
 </div>
 </nav>
 <!-- =========================
      HERO
 ========================= -->
 <header class="hero">
+<div class="hero-orb"></div>
 <div class="hero-content">
-    <div class="badge">
-        ✦ Website Developer
+<div class="hero-kicker">
+    WAHIDSITES // DIGITAL STUDIO
+</div>
+<div class="badge">
+    <span class="badge-dot"></span>
+    Available for new projects
+</div>
+<h1>
+    Your idea.
+    <br>
+    <span class="green">
+        Turned into a website.
+    </span>
+</h1>
+<p>
+    I design and build modern digital experiences
+    for businesses, restaurants, professionals,
+    personal brands and anyone who needs a website
+    that actually feels premium.
+</p>
+<a
+    class="btn"
+    href="#order"
+>
+    Start a Project →
+</a>
+<a
+    class="btn dark"
+    href="https://wa.me/923219494745"
+    target="_blank"
+>
+    Chat on WhatsApp
+</a>
+<div class="hero-status">
+    <div>
+        <span>●</span> MOBILE READY
     </div>
-    <h1>
-        I build websites
-        <span>for businesses.</span>
-    </h1>
-    <p>
-        I'm Abdul Wahid. I create modern,
-        mobile-friendly websites for restaurants,
-        businesses, professionals and personal brands.
-    </p>
-    <a
-        class="btn"
-        href="#order"
-    >
-        Order a Website
-    </a>
-    <a
-        class="btn dark"
-        href="https://wa.me/923219494745"
-        target="_blank"
-    >
-        Chat on WhatsApp
-    </a>
+    <div>
+        <span>●</span> CUSTOM DESIGNED
+    </div>
+    <div>
+        <span>●</span> FAST DELIVERY
+    </div>
+</div>
 </div>
 </header>
 <!-- =========================
@@ -686,82 +1101,131 @@ footer{
     What I can build
 </h2>
 <p class="section-sub">
-    Tell me what your business needs and
-    I'll build a website around it.
+    From a simple professional presence to a complete
+    online ordering experience, I build around what
+    your business actually needs.
 </p>
 <div class="grid">
-    <div class="card">
-        <div class="icon">
-            🌐
-        </div>
-        <h3>
-            Business Websites
-        </h3>
-        <p>
-            Professional websites for
-            companies, shops and local businesses.
-        </p>
+<div class="card">
+    <div class="icon">
+        🌐
     </div>
-    <div class="card">
-        <div class="icon">
-            🍔
-        </div>
-        <h3>
-            Restaurant Websites
-        </h3>
-        <p>
-            Menus, food photos, ordering systems
-            and WhatsApp orders.
-        </p>
+    <h3>
+        Business Websites
+    </h3>
+    <p>
+        Professional websites for companies,
+        shops and local businesses.
+    </p>
+</div>
+<div class="card">
+    <div class="icon">
+        🍔
     </div>
-    <div class="card">
-        <div class="icon">
-            👨‍💼
-        </div>
-        <h3>
-            Professional Websites
-        </h3>
-        <p>
-            Websites for lawyers, doctors,
-            consultants and other professionals.
-        </p>
+    <h3>
+        Restaurant Websites
+    </h3>
+    <p>
+        Menus, food photos, ordering systems
+        and WhatsApp orders.
+    </p>
+</div>
+<div class="card">
+    <div class="icon">
+        👨‍💼
     </div>
-    <div class="card">
-        <div class="icon">
-            🛍️
-        </div>
-        <h3>
-            Online Stores
-        </h3>
-        <p>
-            Product showcases and simple
-            ordering experiences.
-        </p>
+    <h3>
+        Professional Websites
+    </h3>
+    <p>
+        Websites for lawyers, doctors,
+        consultants and other professionals.
+    </p>
+</div>
+<div class="card">
+    <div class="icon">
+        🛍️
     </div>
-    <div class="card">
-        <div class="icon">
-            👤
-        </div>
-        <h3>
-            Personal Websites
-        </h3>
-        <p>
-            Portfolios, personal brands,
-            resumes and creator websites.
-        </p>
+    <h3>
+        Online Stores
+    </h3>
+    <p>
+        Product showcases and simple
+        ordering experiences.
+    </p>
+</div>
+<div class="card">
+    <div class="icon">
+        👤
     </div>
-    <div class="card">
-        <div class="icon">
-            ✨
-        </div>
-        <h3>
-            Custom Websites
-        </h3>
-        <p>
-            Have another idea?
-            Tell me what you want.
-        </p>
+    <h3>
+        Personal Websites
+    </h3>
+    <p>
+        Portfolios, personal brands,
+        resumes and creator websites.
+    </p>
+</div>
+<div class="card">
+    <div class="icon">
+        ✨
     </div>
+    <h3>
+        Custom Websites
+    </h3>
+    <p>
+        Have another idea?
+        Tell me what you want.
+    </p>
+</div>
+</div>
+</section>
+<!-- =========================
+     WORK
+========================= -->
+<section
+    id="work"
+    class="reveal"
+>
+<h2 class="section-title">
+    My Work
+</h2>
+<p class="section-sub">
+    A few examples of the type of websites
+    I can create.
+</p>
+<div class="work">
+<a
+    class="project"
+    href="https://haroonchitrali.site"
+    target="_blank"
+>
+    <small>
+        PROFESSIONAL WEBSITE
+    </small>
+    <h3>
+        Advocate Website
+    </h3>
+    <p>
+        A professional website built for
+        a High Court advocate.
+    </p>
+</a>
+<a
+    class="project"
+    href="#order"
+>
+    <small>
+        RESTAURANT WEBSITE
+    </small>
+    <h3>
+        Restaurant / Food Website
+    </h3>
+    <p>
+        Modern food menus, ordering,
+        WhatsApp integration and more.
+    </p>
+</a>
 </div>
 </section>
 <!-- =========================
@@ -775,54 +1239,173 @@ footer{
     Getting a website is simple.
 </p>
 <div class="steps">
-    <div class="step">
-        <div class="step-number">
-            1
-        </div>
-        <h3>
-            Choose your website
-        </h3>
-        <p>
-            Tell me what type of website
-            you want.
-        </p>
+<div class="step">
+    <div class="step-number">
+        1
     </div>
-    <div class="step">
-        <div class="step-number">
-            2
-        </div>
-        <h3>
-            Tell me your idea
-        </h3>
-        <p>
-            Describe your business,
-            features and design ideas.
-        </p>
+    <h3>
+        Choose your website
+    </h3>
+    <p>
+        Tell me what type of website
+        you want.
+    </p>
+</div>
+<div class="step">
+    <div class="step-number">
+        2
     </div>
-    <div class="step">
-        <div class="step-number">
-            3
-        </div>
-        <h3>
-            I build it
-        </h3>
-        <p>
-            I'll turn your idea into
-            a working website.
-        </p>
+    <h3>
+        Tell me your idea
+    </h3>
+    <p>
+        Describe your business,
+        features and design ideas.
+    </p>
+</div>
+<div class="step">
+    <div class="step-number">
+        3
     </div>
-    <div class="step">
-        <div class="step-number">
-            4
-        </div>
-        <h3>
-            Launch
-        </h3>
-        <p>
-            After you're happy with it,
-            we get it online.
-        </p>
+    <h3>
+        I build it
+    </h3>
+    <p>
+        I'll turn your idea into
+        a working website.
+    </p>
+</div>
+<div class="step">
+    <div class="step-number">
+        4
     </div>
+    <h3>
+        Launch
+    </h3>
+    <p>
+        After you're happy with it,
+        we get it online.
+    </p>
+</div>
+</div>
+</section>
+<!-- =========================
+     REVIEWS
+========================= -->
+<section
+    class="reviews-section reveal"
+    id="reviews"
+>
+<h2 class="section-title">
+    Client Reviews
+</h2>
+<p class="section-sub">
+    Real feedback from people I've worked with.
+    You can also leave a review below.
+</p>
+<div
+    class="review-grid"
+    id="reviewList"
+>
+<div class="review">
+    <span class="demo-label">
+        DEMO REVIEW
+    </span>
+    <div class="stars">
+        ★★★★★
+    </div>
+    <p>
+        Abdul created a clean and professional
+        website that was exactly what I needed.
+    </p>
+    <strong>
+        Example Client
+    </strong>
+</div>
+<div class="review">
+    <span class="demo-label">
+        DEMO REVIEW
+    </span>
+    <div class="stars">
+        ★★★★★
+    </div>
+    <p>
+        Very easy to work with and the website
+        looked modern and worked well on mobile.
+    </p>
+    <strong>
+        Example Business
+    </strong>
+</div>
+</div>
+<div class="review-form">
+<h3>
+    Leave a Review
+</h3>
+<label>
+    Your Name
+</label>
+<input
+    type="text"
+    id="reviewName"
+    placeholder="Your name"
+>
+<label>
+    Rating
+</label>
+<div
+    class="rating-buttons"
+    id="ratingButtons"
+>
+    <button
+        type="button"
+        data-rating="1"
+    >
+        ★
+    </button>
+    <button
+        type="button"
+        data-rating="2"
+    >
+        ★★
+    </button>
+    <button
+        type="button"
+        data-rating="3"
+    >
+        ★★★
+    </button>
+    <button
+        type="button"
+        data-rating="4"
+    >
+        ★★★★
+    </button>
+    <button
+        type="button"
+        data-rating="5"
+    >
+        ★★★★★
+    </button>
+</div>
+<label>
+    Your Review
+</label>
+<textarea
+    id="reviewText"
+    placeholder="Tell people about your experience..."
+></textarea>
+<br>
+<button
+    class="btn"
+    type="button"
+    onclick="submitReview()"
+>
+    Submit Review
+</button>
+<p class="order-note">
+    Reviews are saved on this device.
+</p>
 </div>
 </section>
 <!-- =========================
@@ -841,150 +1424,147 @@ footer{
     contact me directly on WhatsApp.
 </p>
 <form id="websiteOrder">
-    <input
-        type="hidden"
-        name="_subject"
-        value="NEW WEBSITE ORDER — WahidSites"
-    >
-    <input
-        type="hidden"
-        name="_captcha"
-        value="false"
-    >
-    <!-- NAME -->
-    <label>
-        Your Name
-    </label>
-    <input
-        type="text"
-        name="name"
-        id="customerName"
-        placeholder="Your name"
-        required
-    >
-    <!-- PHONE -->
-    <label>
-        Phone / WhatsApp Number
-    </label>
-    <input
-        type="tel"
-        name="phone"
-        id="customerPhone"
-        placeholder="e.g. 0300 1234567"
-        required
-    >
-    <!-- EMAIL -->
-    <label>
-        Email Address
-    </label>
-    <input
-        type="email"
-        name="email"
-        id="customerEmail"
-        placeholder="you@example.com"
-    >
-    <!-- BUSINESS -->
-    <label>
-        Business / Brand Name
-    </label>
-    <input
-        type="text"
-        name="business"
-        id="businessName"
-        placeholder="Your business name"
-        required
-    >
-    <!-- WEBSITE TYPE -->
-    <label>
-        What type of website do you want?
-    </label>
-    <select
-        name="websiteType"
-        id="websiteType"
-        required
-    >
-        <option value="">
-            Select a website type
-        </option>
-        <option>
-            Business Website
-        </option>
-        <option>
-            Restaurant / Food Website
-        </option>
-        <option>
-            Professional Website
-        </option>
-        <option>
-            Online Store
-        </option>
-        <option>
-            Personal / Portfolio Website
-        </option>
-        <option>
-            Custom Website
-        </option>
-    </select>
-    <!-- DETAILS -->
-    <label>
-        What do you want on the website?
-    </label>
-    <textarea
-        name="details"
-        id="websiteDetails"
-        placeholder="Tell me everything you want: pages, features, colors, products, menu, booking system, WhatsApp ordering, etc."
-        required
-    ></textarea>
-    <!-- EXTRA -->
-    <label>
-        Anything else I should know?
-    </label>
-    <textarea
-        name="extra"
-        id="extraDetails"
-        placeholder="Optional"
-    ></textarea>
+<input
+    type="hidden"
+    name="_subject"
+    value="NEW WEBSITE ORDER — WahidSites"
+>
+<input
+    type="hidden"
+    name="_captcha"
+    value="false"
+>
+<label>
+    Your Name
+</label>
+<input
+    type="text"
+    name="name"
+    id="customerName"
+    placeholder="Your name"
+    required
+>
+<label>
+    Phone / WhatsApp Number
+</label>
+<input
+    type="tel"
+    name="phone"
+    id="customerPhone"
+    placeholder="e.g. 0300 1234567"
+    required
+>
+<label>
+    Email Address
+</label>
+<input
+    type="email"
+    name="email"
+    id="customerEmail"
+    placeholder="you@example.com"
+>
+<label>
+    Business / Brand Name
+</label>
+<input
+    type="text"
+    name="business"
+    id="businessName"
+    placeholder="Your business name"
+    required
+>
+<label>
+    What type of website do you want?
+</label>
+<select
+    name="websiteType"
+    id="websiteType"
+    required
+>
+    <option value="">
+        Select a website type
+    </option>
+    <option>
+        Business Website
+    </option>
+    <option>
+        Restaurant / Food Website
+    </option>
+    <option>
+        Professional Website
+    </option>
+    <option>
+        Online Store
+    </option>
+    <option>
+        Personal / Portfolio Website
+    </option>
+    <option>
+        Custom Website
+    </option>
+</select>
+<label>
+    What do you want on the website?
+</label>
+<textarea
+    name="details"
+    id="websiteDetails"
+    placeholder="Tell me everything you want: pages, features, colors, products, menu, booking system, WhatsApp ordering, etc."
+    required
+></textarea>
+<label>
+    Anything else I should know?
+</label>
+<textarea
+    name="extra"
+    id="extraDetails"
+    placeholder="Optional"
+></textarea>
+<br>
+<button
+    type="submit"
+    class="btn"
+    id="submitButton"
+>
+    Send Website Order →
+</button>
+<a
+    href="https://wa.me/923219494745"
+    target="_blank"
+    class="btn dark"
+>
+    Chat on WhatsApp
+</a>
+<p class="order-note">
+    Your order stays on this page while
+    it is being submitted.
+</p>
+<div
+    class="success-message"
+    id="successMessage"
+>
+    <strong>
+        ✅ Order received!
+    </strong>
     <br>
-    <button
-        type="submit"
-        class="btn"
-        id="submitButton"
-    >
-        Send Website Order →
-    </button>
-    <a
-        href="https://wa.me/923219494745"
-        target="_blank"
-        class="btn dark"
-    >
-        Chat on WhatsApp
-    </a>
-    <p class="order-note">
-        Your order stays on this page while
-        it is being submitted.
-    </p>
-    <div
-        class="success-message"
-        id="successMessage"
-    >
-        <strong>
-            ✅ Order received!
-        </strong>
-        <br>
-        Thanks! Your website request has been
-        sent successfully. I'll get back to you soon.
-    </div>
+    Thanks! Your website request has been
+    sent successfully. I'll get back to you soon.
+</div>
 </form>
 </section>
 <!-- =========================
      FOOTER
 ========================= -->
 <footer>
+
 © 2026 Abdul Wahid •
+
 <span class="footer-green">
     WahidSites
 </span>
+
 • Website Developer
+
 </footer>
 <!-- =========================
      FLOATING WHATSAPP
@@ -995,6 +1575,7 @@ href=“https://wa.me/923219494745”
 target=”_blank”
 class=“whatsapp-float”
 title=“Chat on WhatsApp”
+aria-label=“Chat on WhatsApp”
 
 ☎
 </a>
@@ -1247,8 +1828,38 @@ revealElements.forEach(
         );
     }
 );
-/* LOAD SAVED REVIEWS */
+/* =========================
+   LOAD SAVED REVIEWS
+========================= */
 displayReviews();
+/* =========================
+   SUBTLE MOUSE PARALLAX
+========================= */
+document.addEventListener(
+    "mousemove",
+    function(event){
+        const orb =
+            document.querySelector(
+                ".hero-orb"
+            );
+        if(!orb){
+            return;
+        }
+        const x =
+            (event.clientX /
+            window.innerWidth -
+            0.5) * 18;
+        const y =
+            (event.clientY /
+            window.innerHeight -
+            0.5) * 18;
+        orb.style.marginLeft =
+            x + "px";
+        orb.style.marginTop =
+            y + "px";
+    }
+);
 </script>
 </body>
+</html>
 </html>
