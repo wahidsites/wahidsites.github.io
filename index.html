@@ -2,22 +2,29 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-   <meta name="google-site-verification" content="ZnlDH8jQMWhoMhzJ5xz4nbl1F5G22OYUC1wZg8396gc" />
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="ZnlDH8jQMWhoMhzJ5xz4nbl1F5G22OYUC1wZg8396gc" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Abdul Wahid | WahidSites</title>
+
 <meta name="description" content="Abdul Wahid creates modern, futuristic websites for businesses, restaurants, professionals and personal brands.">
+
 <style>
+
 /* =========================
    RESET
 ========================= */
+
 *{
     box-sizing:border-box;
     margin:0;
     padding:0;
 }
+
 html{
     scroll-behavior:smooth;
 }
+
 body{
     font-family:Arial,Helvetica,sans-serif;
     background:#030705;
@@ -26,190 +33,134 @@ body{
     overflow-x:hidden;
     cursor:default;
 }
+
 a{
     text-decoration:none;
     color:inherit;
 }
+
 button,
 input,
 textarea,
 select{
     font-family:inherit;
 }
+
+
 /* =========================
    FUTURISTIC BACKGROUND
 ========================= */
+
 body::before{
     content:"";
     position:fixed;
     width:600px;
     height:600px;
-    background:#00ff8830;
+    background:#00ff8815;
     filter:blur(150px);
     border-radius:50%;
     top:-250px;
     right:-220px;
     z-index:-5;
-    animation:floatGlow 10s ease-in-out infinite alternate;
 }
+
 body::after{
     content:"";
     position:fixed;
     width:500px;
     height:500px;
-    background:#008f5030;
+    background:#008f5015;
     filter:blur(150px);
     border-radius:50%;
     bottom:-250px;
     left:-220px;
     z-index:-5;
-    animation:floatGlow 12s ease-in-out infinite alternate-reverse;
 }
+
+
 /* =========================
    ANIMATIONS
 ========================= */
-@keyframes floatGlow{
-    0%{
-        transform:translate(0,0) scale(1);
-    }
-    100%{
-        transform:translate(80px,60px) scale(1.25);
-    }
-}
+
 @keyframes glow{
     0%,100%{
         text-shadow:
-        0 0 8px #00ff8840,
-        0 0 20px #00ff8820;
+        0 0 8px #00ff8830,
+        0 0 20px #00ff8815;
     }
+
     50%{
         text-shadow:
-        0 0 15px #00ff8880,
-        0 0 40px #00ff8840;
+        0 0 10px #00ff8840,
+        0 0 25px #00ff8820;
     }
 }
+
 @keyframes pulse{
     0%,100%{
-        box-shadow:0 0 0 0 #00ff8830;
+        box-shadow:0 0 0 0 #00ff8820;
     }
+
     50%{
-        box-shadow:0 0 0 14px #00ff8800;
+        box-shadow:0 0 0 8px #00ff8800;
     }
 }
+
 @keyframes slideUp{
     from{
         opacity:0;
-        transform:translateY(45px);
+        transform:translateY(20px);
     }
+
     to{
         opacity:1;
         transform:translateY(0);
     }
 }
-@keyframes fadeIn{
-    from{
-        opacity:0;
-    }
-    to{
-        opacity:1;
-    }
-}
-@keyframes spin{
-    from{
-        transform:rotate(0deg);
-    }
-    to{
-        transform:rotate(360deg);
-    }
-}
-@keyframes reverseSpin{
-    from{
-        transform:rotate(360deg);
-    }
-    to{
-        transform:rotate(0deg);
-    }
-}
-@keyframes scan{
-    0%{
-        transform:translateY(-100%);
-        opacity:0;
-    }
-    15%{
-        opacity:1;
-    }
-    85%{
-        opacity:1;
-    }
-    100%{
-        transform:translateY(100vh);
-        opacity:0;
-    }
-}
-@keyframes gridMove{
-    from{
-        background-position:0 0;
-    }
-    to{
-        background-position:0 80px;
-    }
-}
-@keyframes float{
-    0%,100%{
-        transform:translateY(0);
-    }
-    50%{
-        transform:translateY(-12px);
-    }
-}
+
 @keyframes blink{
     0%,45%{
         opacity:1;
     }
+
     50%,100%{
-        opacity:0;
+        opacity:.5;
     }
 }
-@keyframes borderFlow{
-    0%{
-        background-position:0% 50%;
-    }
-    50%{
-        background-position:100% 50%;
-    }
-    100%{
-        background-position:0% 50%;
-    }
-}
+
+
 /* =========================
    PAGE SCAN LINE
 ========================= */
+
 body{
     position:relative;
 }
+
 body .scanline{
     position:fixed;
     left:0;
     top:0;
     width:100%;
-    height:2px;
+    height:1px;
     background:#00ff88;
     box-shadow:
-        0 0 12px #00ff88,
-        0 0 30px #00ff88;
-    opacity:.35;
+        0 0 8px #00ff88;
+    opacity:.15;
     z-index:9999;
     pointer-events:none;
-    animation:scan 8s linear infinite;
 }
+
+
 /* =========================
    NAVIGATION
 ========================= */
+
 nav{
     position:sticky;
     top:0;
     z-index:1000;
-    background:rgba(3,7,5,.72);
+    background:rgba(3,7,5,.85);
     backdrop-filter:blur(22px);
     border-bottom:1px solid #123c29;
     padding:15px 7%;
@@ -219,36 +170,43 @@ nav{
     box-shadow:
         0 10px 40px #00000030;
 }
+
 .logo{
     width:150px;
     height:48px;
     display:flex;
     align-items:center;
 }
+
 .logo img{
     max-width:150px;
     max-height:48px;
     object-fit:contain;
 }
+
 .logo-placeholder{
     font-size:22px;
     font-weight:bold;
     letter-spacing:-1px;
 }
+
 .logo-placeholder span{
     color:#00e878;
 }
+
 nav .links{
     display:flex;
     align-items:center;
 }
+
 nav a{
     margin-left:25px;
     color:#8f9d95;
     font-size:13px;
-    transition:.3s;
+    transition:.25s;
     position:relative;
 }
+
 nav a::after{
     content:"";
     position:absolute;
@@ -258,18 +216,22 @@ nav a::after{
     height:1px;
     background:#00ff88;
     box-shadow:0 0 8px #00ff88;
-    transition:.3s;
+    transition:.25s;
 }
+
 nav a:hover{
     color:#00ff88;
-    text-shadow:0 0 12px #00ff8866;
 }
+
 nav a:hover::after{
     width:100%;
 }
+
+
 /* =========================
    HERO
 ========================= */
+
 .hero{
     min-height:92vh;
     display:flex;
@@ -277,6 +239,7 @@ nav a:hover::after{
     padding:100px 7%;
     position:relative;
     overflow:hidden;
+
     background:
         radial-gradient(
             circle at 75% 35%,
@@ -285,15 +248,18 @@ nav a:hover::after{
             #030705 65%
         );
 }
-/* Futuristic grid */
+
 .hero::before{
     content:"";
     position:absolute;
     inset:0;
+
     background-image:
-        linear-gradient(#00ff8810 1px,transparent 1px),
-        linear-gradient(90deg,#00ff8810 1px,transparent 1px);
+        linear-gradient(#00ff8808 1px,transparent 1px),
+        linear-gradient(90deg,#00ff8808 1px,transparent 1px);
+
     background-size:55px 55px;
+
     mask-image:
         linear-gradient(
             to bottom,
@@ -302,10 +268,10 @@ nav a:hover::after{
             black 75%,
             transparent
         );
-    animation:gridMove 8s linear infinite;
+
     pointer-events:none;
 }
-/* Massive orbital ring */
+
 .hero::after{
     content:"";
     position:absolute;
@@ -314,21 +280,23 @@ nav a:hover::after{
     right:-190px;
     top:50%;
     transform:translateY(-50%);
-    border:1px solid #00ff8820;
+    border:1px solid #00ff8815;
     border-radius:50%;
+
     box-shadow:
-        0 0 80px #00ff8810,
-        inset 0 0 80px #00ff8808;
-    animation:spin 25s linear infinite;
+        0 0 80px #00ff8808,
+        inset 0 0 80px #00ff8805;
+
     pointer-events:none;
 }
+
 .hero-content{
     max-width:850px;
     position:relative;
     z-index:5;
-    animation:slideUp 1s ease;
+    animation:slideUp .7s ease;
 }
-/* Decorative futuristic text */
+
 .hero-kicker{
     color:#60736a;
     font-size:11px;
@@ -336,43 +304,48 @@ nav a:hover::after{
     text-transform:uppercase;
     margin-bottom:18px;
 }
+
 .badge{
     display:inline-flex;
     align-items:center;
     gap:9px;
+
     border:1px solid #17663f;
     color:#00ff88;
     background:#092217;
+
     border-radius:30px;
     padding:8px 15px;
     font-size:12px;
     margin-bottom:25px;
-    animation:pulse 3s infinite;
 }
+
 .badge-dot{
     width:7px;
     height:7px;
     border-radius:50%;
     background:#00ff88;
     box-shadow:0 0 12px #00ff88;
-    animation:blink 1.5s infinite;
 }
+
 h1{
     font-size:clamp(48px,8vw,92px);
     line-height:.95;
     letter-spacing:-5px;
     margin-bottom:28px;
 }
+
 h1 .green{
     color:#00e878;
-    animation:glow 3s infinite;
 }
+
 .hero p{
     color:#a5b0aa;
     font-size:19px;
     max-width:680px;
     margin-bottom:34px;
 }
+
 .hero-status{
     display:flex;
     gap:25px;
@@ -382,12 +355,16 @@ h1 .green{
     letter-spacing:2px;
     text-transform:uppercase;
 }
+
 .hero-status span{
     color:#00e878;
 }
+
+
 /* =========================
    HERO ORB
 ========================= */
+
 .hero-orb{
     position:absolute;
     right:12%;
@@ -396,35 +373,40 @@ h1 .green{
     height:210px;
     transform:translateY(-50%);
     border-radius:50%;
-    border:1px solid #00ff8840;
+    border:1px solid #00ff8830;
+
     box-shadow:
-        0 0 50px #00ff8820,
-        inset 0 0 50px #00ff8815;
-    animation:float 5s ease-in-out infinite;
+        0 0 50px #00ff8810,
+        inset 0 0 50px #00ff8808;
+
     z-index:2;
 }
+
 .hero-orb::before{
     content:"";
     position:absolute;
     inset:22px;
-    border:1px solid #00ff8860;
+    border:1px solid #00ff8840;
     border-radius:50%;
-    animation:reverseSpin 12s linear infinite;
 }
+
 .hero-orb::after{
     content:"";
     position:absolute;
     inset:55px;
     border-radius:50%;
-    background:#00ff8820;
+    background:#00ff8815;
+
     box-shadow:
-        0 0 50px #00ff8840,
-        0 0 100px #00ff8820;
-    animation:pulse 2.5s infinite;
+        0 0 50px #00ff8820,
+        0 0 100px #00ff8810;
 }
+
+
 /* =========================
    BUTTONS
 ========================= */
+
 .btn{
     display:inline-block;
     background:#00e878;
@@ -435,65 +417,54 @@ h1 .green{
     border:1px solid #00ff88;
     cursor:pointer;
     margin-right:8px;
-    transition:.35s;
+    transition:.25s;
     position:relative;
     overflow:hidden;
+
     box-shadow:0 0 0 0 #00ff8800;
 }
-.btn::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:-120%;
-    width:100%;
-    height:100%;
-    background:linear-gradient(
-        90deg,
-        transparent,
-        #ffffff55,
-        transparent
-    );
-    transition:.5s;
-}
-.btn:hover::before{
-    left:120%;
-}
+
 .btn:hover{
-    transform:translateY(-5px) scale(1.04);
+    transform:translateY(-2px);
     background:#31ff9d;
+
     box-shadow:
-        0 12px 40px #00ff8838,
-        0 0 25px #00ff8820;
+        0 8px 25px #00ff8825;
 }
+
 .btn.dark{
     background:#08120d;
     color:white;
     border:1px solid #214532;
 }
+
 .btn.dark:hover{
     background:#10261a;
     border-color:#00e878;
 }
+
+
 /* =========================
    SECTIONS
 ========================= */
+
 section{
     padding:100px 7%;
     position:relative;
 }
+
 .section-title{
     font-size:42px;
     margin-bottom:10px;
     letter-spacing:-1.5px;
 }
+
 .section-sub{
     color:#8e9a93;
     max-width:650px;
     margin-bottom:42px;
 }
-/* =========================
-   SECTION DECORATION
-========================= */
+
 section::before{
     content:"";
     position:absolute;
@@ -501,21 +472,27 @@ section::before{
     height:1px;
     top:45px;
     left:7%;
+
     background:linear-gradient(
         90deg,
         #00e878,
         transparent
     );
+
     opacity:.5;
 }
+
+
 /* =========================
    SERVICES
 ========================= */
+
 .grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:18px;
 }
+
 .card{
     background:
         linear-gradient(
@@ -523,198 +500,172 @@ section::before{
             #0d1812,
             #08100c
         );
+
     border:1px solid #173c29;
     border-radius:18px;
     padding:30px;
-    transition:.45s;
+    transition:.25s;
     position:relative;
     overflow:hidden;
 }
-.card::before{
-    content:"";
-    position:absolute;
-    width:170px;
-    height:170px;
-    background:#00ff8812;
-    border-radius:50%;
-    right:-90px;
-    top:-90px;
-    transition:.5s;
-}
-.card::after{
-    content:"";
-    position:absolute;
-    left:-100%;
-    top:0;
-    width:70%;
-    height:1px;
-    background:linear-gradient(
-        90deg,
-        transparent,
-        #00ff88,
-        transparent
-    );
-    transition:.6s;
-}
+
 .card:hover{
-    transform:translateY(-12px) scale(1.015);
+    transform:translateY(-5px);
     border-color:#00e878;
+
     box-shadow:
-        0 25px 60px #00ff8815,
-        0 0 25px #00ff8808;
+        0 15px 35px #00ff8810;
 }
-.card:hover::before{
-    transform:scale(2.2);
-}
-.card:hover::after{
-    left:120%;
-}
+
 .card h3{
     margin:12px 0 8px;
 }
+
 .card p{
     color:#9da9a2;
     font-size:15px;
 }
+
 .icon{
     font-size:28px;
-    transition:.45s;
 }
-.card:hover .icon{
-    transform:scale(1.3) rotate(8deg);
-    filter:drop-shadow(0 0 10px #00ff88);
-}
+
+
 /* =========================
    WORK
 ========================= */
+
 .work{
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:18px;
 }
+
 .project{
     min-height:280px;
     border-radius:18px;
     padding:30px;
+
     background:
         linear-gradient(
             135deg,
             #102319,
             #07100b
         );
+
     border:1px solid #183d2a;
+
     display:flex;
     flex-direction:column;
     justify-content:flex-end;
-    transition:.45s;
+
+    transition:.25s;
     position:relative;
     overflow:hidden;
 }
-.project::before{
-    content:"";
-    position:absolute;
-    width:300px;
-    height:300px;
-    background:#00e87810;
-    border-radius:50%;
-    top:-150px;
-    right:-100px;
-    transition:.6s;
+
+.project:hover{
+    transform:translateY(-5px);
+    border-color:#00e878;
+
+    box-shadow:
+        0 15px 40px #00ff8810;
 }
+
 .project::after{
-    content:"↗";
+    content:"↗️";
     position:absolute;
     right:28px;
     top:25px;
     font-size:25px;
     color:#00e878;
     opacity:.5;
-    transition:.3s;
 }
-.project:hover{
-    transform:translateY(-10px);
-    border-color:#00e878;
-    box-shadow:
-        0 25px 65px #00ff8817,
-        inset 0 0 40px #00ff8808;
-}
-.project:hover::before{
-    transform:scale(1.8);
-}
-.project:hover::after{
-    transform:translate(5px,-5px);
-    opacity:1;
-}
+
 .project small{
     color:#00e878;
     letter-spacing:2px;
     font-size:10px;
 }
+
 .project h3{
     font-size:28px;
     margin:7px 0;
 }
+
 .project p{
     color:#9ba69f;
 }
+
+
 /* =========================
    PROCESS
 ========================= */
+
 .steps{
     max-width:800px;
 }
+
 .step{
     position:relative;
     padding:25px 25px 25px 78px;
     border-bottom:1px solid #173326;
-    transition:.35s;
+    transition:.2s;
 }
+
 .step:hover{
-    padding-left:90px;
-    background:#00ff8805;
+    padding-left:85px;
+    background:#00ff8803;
 }
+
 .step-number{
     position:absolute;
     left:20px;
     top:20px;
+
     width:40px;
     height:40px;
+
     border-radius:50%;
     background:#00e878;
     color:#03100a;
+
     font-weight:bold;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     box-shadow:
-        0 0 20px #00ff8830;
-    transition:.3s;
+        0 0 15px #00ff8820;
 }
-.step:hover .step-number{
-    transform:scale(1.15);
-    box-shadow:
-        0 0 30px #00ff8860;
-}
+
 .step p{
     color:#9aa69f;
 }
+
+
 /* =========================
    REVIEW FORM
 ========================= */
+
 .review-form{
     max-width:750px;
     background:#0c1711;
     border:1px solid #193c29;
     padding:30px;
     border-radius:18px;
+
     box-shadow:
         0 20px 60px #00000035;
 }
+
 .rating-buttons{
     display:flex;
     gap:8px;
     margin-bottom:10px;
 }
+
 .rating-buttons button{
     background:#101c15;
     color:#6f7d75;
@@ -724,16 +675,22 @@ section::before{
     cursor:pointer;
     transition:.2s;
 }
+
 .rating-buttons button:hover,
 .rating-buttons button.selected{
     background:#00e878;
     color:#03100a;
     border-color:#00e878;
-    box-shadow:0 0 15px #00ff8830;
+
+    box-shadow:
+        0 0 15px #00ff8820;
 }
+
+
 /* =========================
    ORDER
 ========================= */
+
 .order{
     background:
         radial-gradient(
@@ -741,23 +698,28 @@ section::before{
             #07351f,
             #07100b 35%
         );
+
     border-top:1px solid #183c29;
 }
+
 form{
     max-width:750px;
     background:#0b1710;
     padding:30px;
     border-radius:18px;
     border:1px solid #1b402c;
+
     box-shadow:
         0 20px 70px #00000055;
 }
+
 label{
     display:block;
     color:#b4beb8;
     font-size:14px;
     margin:17px 0 6px;
 }
+
 input,
 textarea,
 select{
@@ -769,25 +731,29 @@ select{
     padding:14px;
     font-size:15px;
     outline:none;
-    transition:.3s;
+    transition:.2s;
 }
+
 input:focus,
 textarea:focus,
 select:focus{
     border-color:#00e878;
+
     box-shadow:
-        0 0 0 3px #00ff8812,
-        0 0 20px #00ff8808;
+        0 0 0 3px #00ff8810;
 }
+
 textarea{
     min-height:150px;
     resize:vertical;
 }
+
 .order-note{
     color:#7f8c84;
     font-size:13px;
     margin-top:12px;
 }
+
 .success-message{
     display:none;
     margin-top:20px;
@@ -796,39 +762,55 @@ textarea{
     background:#092519;
     border:1px solid #00e878;
     color:#aaffd1;
-    box-shadow:0 0 30px #00ff8815;
+
+    box-shadow:
+        0 0 30px #00ff8810;
 }
+
+
 /* =========================
    WHATSAPP
 ========================= */
+
 .whatsapp-float{
     position:fixed;
     right:22px;
     bottom:22px;
+
     width:58px;
     height:58px;
+
     border-radius:50%;
     background:#25d366;
     color:white;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     font-size:27px;
+
     z-index:2000;
+
     box-shadow:
-        0 10px 35px #25d36655;
-    animation:pulse 2.5s infinite;
-    transition:.3s;
+        0 10px 35px #25d36635;
+
+    transition:.25s;
 }
+
 .whatsapp-float:hover{
-    transform:scale(1.15);
+    transform:scale(1.08);
+
     box-shadow:
-        0 0 30px #25d366,
-        0 10px 40px #25d36655;
+        0 0 25px #25d366,
+        0 10px 40px #25d36635;
 }
+
+
 /* =========================
    FOOTER
 ========================= */
+
 footer{
     padding:35px 7%;
     text-align:center;
@@ -836,192 +818,253 @@ footer{
     border-top:1px solid #173326;
     font-size:13px;
 }
+
 .footer-green{
     color:#00e878;
 }
+
+
 /* =========================
    SCROLL REVEAL
 ========================= */
+
 .reveal{
-    opacity:0;
-    transform:translateY(45px);
-    transition:
-        opacity .9s ease,
-        transform .9s cubic-bezier(.2,.8,.2,1);
+    opacity:1;
+    transform:none;
 }
+
 .reveal.visible{
     opacity:1;
-    transform:translateY(0);
+    transform:none;
 }
+
+
 /* =========================
    MOBILE
 ========================= */
+
 @media(max-width:900px){
+
     nav{
         padding:15px 5%;
     }
+
     nav .links a{
         margin-left:10px;
         font-size:11px;
     }
+
     .hero{
         padding:80px 6%;
     }
+
     .hero-orb{
-        opacity:.25;
+        opacity:.2;
         right:-80px;
     }
+
     .grid,
     .work,
     .review-grid{
         grid-template-columns:1fr;
     }
+
     section{
         padding:75px 6%;
     }
+
     section::before{
         left:6%;
     }
 }
+
+
 @media(max-width:600px){
+
     nav{
         padding:13px 5%;
     }
+
     .logo{
         width:110px;
         height:40px;
     }
+
     .logo img{
         max-width:110px;
         max-height:40px;
     }
+
     nav .links{
         gap:7px;
     }
+
     nav a{
         margin-left:5px !important;
         font-size:9px !important;
     }
+
     .hero{
         min-height:88vh;
         padding:75px 6%;
     }
+
     .hero::after{
         width:450px;
         height:450px;
         right:-250px;
     }
+
     .hero-orb{
         width:160px;
         height:160px;
         right:-70px;
-        opacity:.2;
+        opacity:.15;
     }
+
     .hero-kicker{
         font-size:9px;
         letter-spacing:3px;
     }
+
     h1{
         font-size:52px;
         letter-spacing:-4px;
     }
+
     .hero p{
         font-size:16px;
     }
+
     .hero-status{
         flex-direction:column;
         gap:8px;
     }
+
     .section-title{
         font-size:34px;
     }
+
     form{
         padding:22px;
     }
+
     .btn{
         margin-bottom:10px;
     }
 }
+
+
 /* =========================
    REDUCE MOTION
 ========================= */
+
 @media(prefers-reduced-motion:reduce){
+
     *,
     *::before,
     *::after{
-        animation-duration:.01ms !important;
-        animation-iteration-count:1 !important;
+        animation:none !important;
         scroll-behavior:auto !important;
-        transition-duration:.01ms !important;
+        transition:none !important;
     }
 }
+
 </style>
 </head>
+
 <body>
+
 <div class="scanline"></div>
+
+
 <!-- =========================
      NAVIGATION
 ========================= -->
+
 <nav>
+
 <div class="logo">
-<!--
-PUT YOUR LOGO HERE
-Rename your logo file to:
-logo.png
-Then place it in the same folder as this HTML file.
--->
+
 <img
     src="logo.png"
     alt="WahidSites Logo"
 >
+
 </div>
+
 <div class="links">
+
 <a href="#services">
     Services
 </a>
+
 <a href="#work">
     Work
 </a>
+
 <a href="#reviews">
     Reviews
 </a>
+
 <a href="#order">
     Order
 </a>
+
 </div>
+
 </nav>
+
+
 <!-- =========================
      HERO
 ========================= -->
+
 <header class="hero">
+
 <div class="hero-orb"></div>
+
 <div class="hero-content">
+
 <div class="hero-kicker">
     WAHIDSITES // DIGITAL STUDIO
 </div>
+
 <div class="badge">
-    <span class="badge-dot"></span>
+
+<span class="badge-dot"></span>
+
     Available for new projects
+
 </div>
+
 <h1>
+
     Your idea.
     <br>
+
     <span class="green">
         Turned into a website.
     </span>
+
 </h1>
+
 <p>
+
     I design and build modern digital experiences
     for businesses, restaurants, professionals,
     personal brands and anyone who needs a website
     that actually feels premium.
+
 </p>
+
 <a
     class="btn"
     href="#order"
 >
     Start a Project →
 </a>
+
 <a
     class="btn dark"
     href="https://wa.me/923219494745"
@@ -1029,260 +1072,387 @@ Then place it in the same folder as this HTML file.
 >
     Chat on WhatsApp
 </a>
+
 <div class="hero-status">
-    <div>
-        <span>●</span> MOBILE READY
-    </div>
-    <div>
-        <span>●</span> CUSTOM DESIGNED
-    </div>
-    <div>
-        <span>●</span> FAST DELIVERY
-    </div>
+
+<div>
+    <span>●</span> MOBILE READY
 </div>
+
+<div>
+    <span>●</span> CUSTOM DESIGNED
 </div>
+
+<div>
+    <span>●</span> FAST DELIVERY
+</div>
+
+</div>
+
+</div>
+
 </header>
+
+
 <!-- =========================
      SERVICES
 ========================= -->
+
 <section
     id="services"
     class="reveal"
 >
+
 <h2 class="section-title">
     What I can build
 </h2>
+
 <p class="section-sub">
+
     From a simple professional presence to a complete
     online ordering experience, I build around what
     your business actually needs.
+
 </p>
+
 <div class="grid">
+
+
 <div class="card">
-    <div class="icon">
-        🌐
-    </div>
-    <h3>
-        Business Websites
-    </h3>
-    <p>
-        Professional websites for companies,
-        shops and local businesses.
-    </p>
+
+<div class="icon">
+    🌐
 </div>
+
+<h3>
+    Business Websites
+</h3>
+
+<p>
+    Professional websites for companies,
+    shops and local businesses.
+</p>
+
+</div>
+
+
 <div class="card">
-    <div class="icon">
-        🍔
-    </div>
-    <h3>
-        Restaurant Websites
-    </h3>
-    <p>
-        Menus, food photos, ordering systems
-        and WhatsApp orders.
-    </p>
+
+<div class="icon">
+    🍔
 </div>
+
+<h3>
+    Restaurant Websites
+</h3>
+
+<p>
+    Menus, food photos, ordering systems
+    and WhatsApp orders.
+</p>
+
+</div>
+
+
 <div class="card">
-    <div class="icon">
-        👨‍💼
-    </div>
-    <h3>
-        Professional Websites
-    </h3>
-    <p>
-        Websites for lawyers, doctors,
-        consultants and other professionals.
-    </p>
+
+<div class="icon">
+    👨‍💼
 </div>
+
+<h3>
+    Professional Websites
+</h3>
+
+<p>
+    Websites for lawyers, doctors,
+    consultants and other professionals.
+</p>
+
+</div>
+
+
 <div class="card">
-    <div class="icon">
-        🛍️
-    </div>
-    <h3>
-        Online Stores
-    </h3>
-    <p>
-        Product showcases and simple
-        ordering experiences.
-    </p>
+
+<div class="icon">
+    🛍️
 </div>
+
+<h3>
+    Online Stores
+</h3>
+
+<p>
+    Product showcases and simple
+    ordering experiences.
+</p>
+
+</div>
+
+
 <div class="card">
-    <div class="icon">
-        👤
-    </div>
-    <h3>
-        Personal Websites
-    </h3>
-    <p>
-        Portfolios, personal brands,
-        resumes and creator websites.
-    </p>
+
+<div class="icon">
+    👤
 </div>
+
+<h3>
+    Personal Websites
+</h3>
+
+<p>
+    Portfolios, personal brands,
+    resumes and creator websites.
+</p>
+
+</div>
+
+
 <div class="card">
-    <div class="icon">
-        ✨
-    </div>
-    <h3>
-        Custom Websites
-    </h3>
-    <p>
-        Have another idea?
-        Tell me what you want.
-    </p>
+
+<div class="icon">
+    ✨
 </div>
+
+<h3>
+    Custom Websites
+</h3>
+
+<p>
+    Have another idea?
+    Tell me what you want.
+</p>
+
 </div>
+
+
+</div>
+
 </section>
+
+
 <!-- =========================
      WORK
 ========================= -->
+
 <section
     id="work"
     class="reveal"
 >
+
 <h2 class="section-title">
     My Work
 </h2>
+
 <p class="section-sub">
+
     A few examples of the type of websites
     I can create.
+
 </p>
+
 <div class="work">
+
 <a
     class="project"
     href="https://haroonchitrali.site"
     target="_blank"
 >
-    <small>
-        PROFESSIONAL WEBSITE
-    </small>
-    <h3>
-        Advocate Website
-    </h3>
-    <p>
-        A professional website built for
-        a High Court advocate.
-    </p>
+
+<small>
+    PROFESSIONAL WEBSITE
+</small>
+
+<h3>
+    Advocate Website
+</h3>
+
+<p>
+    A professional website built for
+    a High Court advocate.
+</p>
+
 </a>
+
 </div>
+
 </section>
+
+
 <!-- =========================
      PROCESS
 ========================= -->
+
 <section class="reveal">
+
 <h2 class="section-title">
     How it works
 </h2>
+
 <p class="section-sub">
     Getting a website is simple.
 </p>
+
 <div class="steps">
+
+
 <div class="step">
-    <div class="step-number">
-        1
-    </div>
-    <h3>
-        Choose your website
-    </h3>
-    <p>
-        Tell me what type of website
-        you want.
-    </p>
+
+<div class="step-number">
+    1
 </div>
+
+<h3>
+    Choose your website
+</h3>
+
+<p>
+    Tell me what type of website
+    you want.
+</p>
+
+</div>
+
+
 <div class="step">
-    <div class="step-number">
-        2
-    </div>
-    <h3>
-        Tell me your idea
-    </h3>
-    <p>
-        Describe your business,
-        features and design ideas.
-    </p>
+
+<div class="step-number">
+    2
 </div>
+
+<h3>
+    Tell me your idea
+</h3>
+
+<p>
+    Describe your business,
+    features and design ideas.
+</p>
+
+</div>
+
+
 <div class="step">
-    <div class="step-number">
-        3
-    </div>
-    <h3>
-        I build it
-    </h3>
-    <p>
-        I'll turn your idea into
-        a working website.
-    </p>
+
+<div class="step-number">
+    3
 </div>
+
+<h3>
+    I build it
+</h3>
+
+<p>
+    I'll turn your idea into
+    a working website.
+</p>
+
+</div>
+
+
 <div class="step">
-    <div class="step-number">
-        4
-    </div>
-    <h3>
-        Launch
-    </h3>
-    <p>
-        After you're happy with it,
-        we get it online.
-    </p>
+
+<div class="step-number">
+    4
 </div>
+
+<h3>
+    Launch
+</h3>
+
+<p>
+    After you're happy with it,
+    we get it online.
+</p>
+
 </div>
+
+
+</div>
+
 </section>
+
+
+<!-- =========================
+     REVIEW
+========================= -->
+
+<section
+    id="reviews"
+    class="reveal"
+>
+
 <h3>
     Leave a Review
 </h3>
+
 <label>
     Your Name
 </label>
+
 <input
     type="text"
     id="reviewName"
     placeholder="Your name"
 >
+
 <label>
     Rating
 </label>
+
 <div
     class="rating-buttons"
     id="ratingButtons"
 >
-    <button
-        type="button"
-        data-rating="1"
-    >
-        ★
-    </button>
-    <button
-        type="button"
-        data-rating="2"
-    >
-        ★★
-    </button>
-    <button
-        type="button"
-        data-rating="3"
-    >
-        ★★★
-    </button>
-    <button
-        type="button"
-        data-rating="4"
-    >
-        ★★★★
-    </button>
-    <button
-        type="button"
-        data-rating="5"
-    >
-        ★★★★★
-    </button>
+
+<button
+    type="button"
+    data-rating="1"
+>
+    ★
+</button>
+
+<button
+    type="button"
+    data-rating="2"
+>
+    ★★
+</button>
+
+<button
+    type="button"
+    data-rating="3"
+>
+    ★★★
+</button>
+
+<button
+    type="button"
+    data-rating="4"
+>
+    ★★★★
+</button>
+
+<button
+    type="button"
+    data-rating="5"
+>
+    ★★★★★
+</button>
+
 </div>
+
 <label>
     Your Review
 </label>
+
 <textarea
     id="reviewText"
     placeholder="Tell people about your experience..."
 ></textarea>
+
 <br>
+
 <button
     class="btn"
     type="button"
@@ -1290,40 +1460,67 @@ Then place it in the same folder as this HTML file.
 >
     Submit Review
 </button>
+
 <p class="order-note">
     Reviews are saved on this device.
 </p>
-</div>
+
+<div id="reviewList"></div>
+
 </section>
+
+
 <!-- =========================
      ORDER
 ========================= -->
+
 <section
     class="order reveal"
     id="order"
 >
+
 <h2 class="section-title">
     Order Your Website
 </h2>
+
 <p class="section-sub">
+
     Tell me what you need and I'll receive
     your request by email. You can also
     contact me directly on WhatsApp.
+
 </p>
-<form id="websiteOrder">
+
+
+<form
+    id="websiteOrder"
+    action="https://formsubmit.co/abdulwahiddd801@gmail.com"
+    method="POST"
+>
+
 <input
     type="hidden"
     name="_subject"
     value="NEW WEBSITE ORDER — WahidSites"
 >
+
 <input
     type="hidden"
     name="_captcha"
     value="false"
 >
+
+<input
+    type="hidden"
+    name="_template"
+    value="table"
+>
+
+
 <label>
     Your Name
 </label>
+
 <input
     type="text"
     name="name"
@@ -1331,9 +1528,12 @@ Then place it in the same folder as this HTML file.
     placeholder="Your name"
     required
 >
+
+
 <label>
     Phone / WhatsApp Number
 </label>
+
 <input
     type="tel"
     name="phone"
@@ -1341,18 +1541,25 @@ Then place it in the same folder as this HTML file.
     placeholder="e.g. 0300 1234567"
     required
 >
+
+
 <label>
     Email Address
 </label>
+
 <input
     type="email"
     name="email"
     id="customerEmail"
     placeholder="you@example.com"
+    required
 >
+
+
 <label>
     Business / Brand Name
 </label>
+
 <input
     type="text"
     name="business"
@@ -1360,54 +1567,73 @@ Then place it in the same folder as this HTML file.
     placeholder="Your business name"
     required
 >
+
+
 <label>
     What type of website do you want?
 </label>
+
 <select
     name="websiteType"
     id="websiteType"
     required
 >
-    <option value="">
-        Select a website type
-    </option>
-    <option>
-        Business Website
-    </option>
-    <option>
-        Restaurant / Food Website
-    </option>
-    <option>
-        Professional Website
-    </option>
-    <option>
-        Online Store
-    </option>
-    <option>
-        Personal / Portfolio Website
-    </option>
-    <option>
-        Custom Website
-    </option>
+
+<option value="">
+    Select a website type
+</option>
+
+<option>
+    Business Website
+</option>
+
+<option>
+    Restaurant / Food Website
+</option>
+
+<option>
+    Professional Website
+</option>
+
+<option>
+    Online Store
+</option>
+
+<option>
+    Personal / Portfolio Website
+</option>
+
+<option>
+    Custom Website
+</option>
+
 </select>
+
+
 <label>
     What do you want on the website?
 </label>
+
 <textarea
     name="details"
     id="websiteDetails"
     placeholder="Tell me everything you want: pages, features, colors, products, menu, booking system, WhatsApp ordering, etc."
     required
 ></textarea>
+
+
 <label>
     Anything else I should know?
 </label>
+
 <textarea
     name="extra"
     id="extraDetails"
     placeholder="Optional"
 ></textarea>
+
 <br>
+
 <button
     type="submit"
     class="btn"
@@ -1415,6 +1641,7 @@ Then place it in the same folder as this HTML file.
 >
     Send Website Order →
 </button>
+
 <a
     href="https://wa.me/923219494745"
     target="_blank"
@@ -1422,29 +1649,23 @@ Then place it in the same folder as this HTML file.
 >
     Chat on WhatsApp
 </a>
+
 <p class="order-note">
-    Your order stays on this page while
-    it is being submitted.
+    Your order will be sent directly to my email.
 </p>
-<div
-    class="success-message"
-    id="successMessage"
->
-    <strong>
-        ✅ Order received!
-    </strong>
-    <br>
-    Thanks! Your website request has been
-    sent successfully. I'll get back to you soon.
-</div>
+
 </form>
+
 </section>
+
+
 <!-- =========================
      FOOTER
 ========================= -->
+
 <footer>
 
-© 2026 Abdul Wahid •
+©️ 2026 Abdul Wahid •
 
 <span class="footer-green">
     WahidSites
@@ -1453,300 +1674,275 @@ Then place it in the same folder as this HTML file.
 • Website Developer
 
 </footer>
+
+
 <!-- =========================
      FLOATING WHATSAPP
 ========================= -->
 
 <a
-href=“https://wa.me/923219494745”
-target=”_blank”
-class=“whatsapp-float”
-title=“Chat on WhatsApp”
-aria-label=“Chat on WhatsApp”
-
-☎
+    href="https://wa.me/923219494745"
+    target="_blank"
+    class="whatsapp-float"
+    title="Chat on WhatsApp"
+    aria-label="Chat on WhatsApp"
+>
+    ☎
 </a>
+
+
 <!-- =========================
      JAVASCRIPT
 ========================= -->
+
 <script>
-/* =========================
-   ORDER FORM
-========================= */
-document
-.getElementById("websiteOrder")
-.addEventListener(
-    "submit",
-    async function(event){
-        event.preventDefault();
-        const form =
-            event.target;
-        const button =
-            document.getElementById(
-                "submitButton"
-            );
-        const success =
-            document.getElementById(
-                "successMessage"
-            );
-        button.disabled =
-            true;
-        button.innerText =
-            "Sending Order...";
-        const formData =
-            new FormData(form);
-        try{
-            const response =
-                await fetch(
-                    "https://formsubmit.co/ajax/abdulwahiddd801@gmail.com",
-                    {
-                        method:"POST",
-                        body:formData,
-                        headers:{
-                            "Accept":
-                            "application/json"
-                        }
-                    }
-                );
-            if(response.ok){
-                form.reset();
-                button.style.display =
-                    "none";
-                success.style.display =
-                    "block";
-                success.scrollIntoView({
-                    behavior:"smooth",
-                    block:"center"
-                });
-            }
-            else{
-                throw new Error(
-                    "Submission failed"
-                );
-            }
-        }
-        catch(error){
-            button.disabled =
-                false;
-            button.innerText =
-                "Send Website Order →";
-            alert(
-                "Something went wrong. Please use the WhatsApp button instead."
-            );
-        }
-    }
-);
+
 /* =========================
    REVIEW SYSTEM
 ========================= */
+
 let selectedRating = 0;
+
 const ratingButtons =
     document.querySelectorAll(
         "#ratingButtons button"
     );
+
 ratingButtons.forEach(
     function(button){
+
         button.addEventListener(
             "click",
             function(){
+
                 selectedRating =
                     Number(
                         this.dataset.rating
                     );
+
                 ratingButtons.forEach(
                     function(btn){
+
                         btn.classList.remove(
                             "selected"
                         );
+
                     }
                 );
+
                 this.classList.add(
                     "selected"
                 );
+
             }
         );
+
     }
 );
+
+
 function submitReview(){
+
     const name =
         document.getElementById(
             "reviewName"
         ).value.trim();
+
     const text =
         document.getElementById(
             "reviewText"
         ).value.trim();
+
+
     if(!name){
+
         alert(
             "Please enter your name."
         );
+
         return;
+
     }
+
+
     if(!selectedRating){
+
         alert(
             "Please choose a rating."
         );
+
         return;
+
     }
+
+
     if(!text){
+
         alert(
             "Please write your review."
         );
+
         return;
+
     }
+
+
     const review = {
+
         name:name,
         rating:selectedRating,
         text:text
+
     };
+
+
     const reviews =
         JSON.parse(
             localStorage.getItem(
                 "wahidSitesReviews"
             ) || "[]"
         );
+
+
     reviews.push(review);
+
+
     localStorage.setItem(
         "wahidSitesReviews",
         JSON.stringify(reviews)
     );
+
+
     displayReviews();
+
+
     document.getElementById(
         "reviewName"
     ).value = "";
+
+
     document.getElementById(
         "reviewText"
     ).value = "";
-    selectedRating =
-        0;
+
+
+    selectedRating = 0;
+
+
     ratingButtons.forEach(
         function(btn){
+
             btn.classList.remove(
                 "selected"
             );
+
         }
     );
+
+
     alert(
         "Thank you for your review! ⭐"
     );
+
 }
+
+
 function displayReviews(){
+
     const list =
         document.getElementById(
             "reviewList"
         );
+
+
+    if(!list){
+        return;
+    }
+
+
+    list.innerHTML = "";
+
+
     const reviews =
         JSON.parse(
             localStorage.getItem(
                 "wahidSitesReviews"
             ) || "[]"
         );
+
+
     reviews.forEach(
         function(review){
+
             const card =
                 document.createElement(
                     "div"
                 );
+
+
             card.className =
                 "review";
+
+
             const stars =
                 "★".repeat(
                     review.rating
                 );
+
+
             card.innerHTML =
                 '<div class="stars">' +
                 stars +
                 '</div>' +
+
                 '<p>' +
                 escapeHTML(
                     review.text
                 ) +
                 '</p>' +
+
                 '<strong>' +
                 escapeHTML(
                     review.name
                 ) +
                 '</strong>';
+
+
             list.appendChild(
                 card
             );
+
         }
     );
+
 }
+
+
 function escapeHTML(text){
+
     const div =
         document.createElement(
             "div"
         );
+
+
     div.textContent =
         text;
+
+
     return div.innerHTML;
+
 }
-/* =========================
-   SCROLL ANIMATIONS
-========================= */
-const revealElements =
-    document.querySelectorAll(
-        ".reveal"
-    );
-const observer =
-    new IntersectionObserver(
-        function(entries){
-            entries.forEach(
-                function(entry){
-                    if(
-                        entry.isIntersecting
-                    ){
-                        entry.target.classList.add(
-                            "visible"
-                        );
-                    }
-                }
-            );
-        },
-        {
-            threshold:0.12
-        }
-    );
-revealElements.forEach(
-    function(element){
-        observer.observe(
-            element
-        );
-    }
-);
+
+
 /* =========================
    LOAD SAVED REVIEWS
 ========================= */
+
 displayReviews();
-/* =========================
-   SUBTLE MOUSE PARALLAX
-========================= */
-document.addEventListener(
-    "mousemove",
-    function(event){
-        const orb =
-            document.querySelector(
-                ".hero-orb"
-            );
-        if(!orb){
-            return;
-        }
-        const x =
-            (event.clientX /
-            window.innerWidth -
-            0.5) * 18;
-        const y =
-            (event.clientY /
-            window.innerHeight -
-            0.5) * 18;
-        orb.style.marginLeft =
-            x + "px";
-        orb.style.marginTop =
-            y + "px";
-    }
-);
+
 </script>
+
 </body>
 </html>
 </html>
