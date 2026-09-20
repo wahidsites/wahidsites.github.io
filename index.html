@@ -1494,7 +1494,7 @@ footer{
 
 <form
     id="websiteOrder"
-    action="https://formsubmit.co/abdulwahiddd801@gmail.com"
+    action="https://formsubmit.co/ajax/abdulwahiddd801@gmail.com"
     method="POST"
 >
 
@@ -1653,6 +1653,15 @@ footer{
 <p class="order-note">
     Your order will be sent directly to my email.
 </p>
+
+<div
+    class="success-message"
+    id="successMessage"
+>
+    <strong>Order sent successfully! ✅</strong>
+    <br>
+    Thanks! I've received your website request and will get back to you soon.
+</div>
 
 </form>
 
@@ -1941,8 +1950,118 @@ function escapeHTML(text){
 
 displayReviews();
 
+
+/* =========================
+   WEBSITE ORDER — AJAX
+========================= */
+
+document
+.getElementById("websiteOrder")
+.addEventListener(
+    "submit",
+    async function(event){
+
+        event.preventDefault();
+
+        const form = event.target;
+
+        const button =
+            document.getElementById(
+                "submitButton"
+            );
+
+        const success =
+            document.getElementById(
+                "successMessage"
+            );
+
+        button.disabled = true;
+
+        button.innerText =
+            "Sending Order...";
+
+        success.style.display =
+            "none";
+
+        const formData =
+            new FormData(form);
+
+        try{
+
+            const response =
+                await fetch(
+                    "https://formsubmit.co/ajax/abdulwahiddd801@gmail.com",
+                    {
+                        method:"POST",
+                        body:formData,
+                        headers:{
+                            "Accept":"application/json"
+                        }
+                    }
+                );
+
+
+            const result =
+                await response.json();
+
+
+            if(
+                response.ok &&
+                (
+                    result.success === true ||
+                    result.success === "true"
+                )
+            ){
+
+                form.reset();
+
+                button.style.display =
+                    "none";
+
+                success.style.display =
+                    "block";
+
+                success.scrollIntoView({
+                    behavior:"smooth",
+                    block:"center"
+                });
+
+            }
+
+            else{
+
+                throw new Error(
+                    "Form submission failed"
+                );
+
+            }
+
+        }
+
+        catch(error){
+
+            console.error(
+                "Order submission error:",
+                error
+            );
+
+            button.disabled =
+                false;
+
+            button.innerText =
+                "Send Website Order →";
+
+            alert(
+                "Something went wrong sending the order. Please try again or use the WhatsApp button."
+            );
+
+        }
+
+    }
+);
+
 </script>
 
 </body>
 </html>
-</html>
+
