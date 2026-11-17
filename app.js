@@ -1,50 +1,48 @@
 
-const USER='wahidsites';
-const known={
-  'papafries':{title:'Papa Fries × Mexicano',category:'Food & hospitality',description:'A restaurant-focused web presence for a local food brand, designed to make the menu and brand easy to discover.',live:'https://wahidsites.github.io/papafries/'},
-  'faces':{title:'FACES Aesthetics',category:'Beauty & wellness',description:'A digital presence for an aesthetics brand, with a visual direction suited to beauty and personal-care services.',live:'https://wahidsites.github.io/faces'},
-  'haroonghous':{title:"Haroon Chitrali's Law Association",category:'Professional services',description:'A professional website for a legal practice, built to present legal services and make office contact easier.',live:'https://haroonghous.site'},
-  'platecount':{title:'PlateCount',category:'Web application',description:'A food and calorie-tracking web app concept with an AI-assisted food-estimation workflow.',live:'https://wahiidhassan.pythonanywhere.com/'},
-  'finflow':{title:'FinFlow',category:'Finance application',description:'A personal-finance project focused on presenting money-management tools in a clean digital interface.',live:'https://wahidsites.github.io/finflow/'},
-  'wahidsites.github.io':{title:'WahidSites',category:'Portfolio & studio',description:'The portfolio and digital studio website showcasing web projects and services.',live:'https://wahidsites.github.io/'}
-};
-function esc(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-function card(repo){
- const k=known[repo.name]||{};
- const title=k.title||repo.name.replace(/[-_]/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
- const desc=k.description||repo.description||'A project in the WahidSites GitHub portfolio. Explore the repository for its implementation and latest details.';
- const live=k.live||repo.homepage||'';
- const lang=repo.language||'Web project';
- return `<article class="card project-card" data-search="${esc((title+' '+desc+' '+lang+' '+repo.name).toLowerCase())}">
- <div class="project-top"><span class="tag">${esc(k.category||lang)}</span><span class="project-icon">${esc(title.slice(0,2).toUpperCase())}</span></div>
- <h3>${esc(title)}</h3><p>${esc(desc)}</p>
- <div class="card-foot"><a href="${esc(repo.html_url)}" target="_blank" rel="noopener">GitHub repository ↗</a>${live?`<a href="${esc(live)}" target="_blank" rel="noopener">Live project ↗</a>`:''}</div></article>`;
+const $=(s,r=document)=>r.querySelector(s);
+const $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const menu=$('.menu'), nav=$('.navlinks');
+if(menu&&nav) menu.addEventListener('click',()=>nav.classList.toggle('open'));
+$$('[data-year]').forEach(el=>el.textContent=new Date().getFullYear());
+
+const knownProjects=[
+ {name:'PlateCount',type:'Web application',description:'A calorie and food-tracking web app concept built to make everyday nutrition logging simpler.',url:'https://wahiidhassan.pythonanywhere.com/',tags:['Flask','Python','AI concept'],featured:true},
+ {name:'Haroon Chitrali — Legal',type:'Professional website',description:'A legal practice website presenting services, professional information and contact routes.',url:'https://haroonchitrali.site/',tags:['Website','Professional']},
+ {name:'WahidSites',type:'Portfolio',description:'The independent digital studio portfolio: selected work, services and project enquiries.',url:'https://wahidsites.github.io/',tags:['HTML','CSS','JavaScript']}
+];
+function projectCard(p){
+ const tags=(p.tags||[]).slice(0,3).map(t=>`<span class="pill">${escapeHtml(t)}</span>`).join('');
+ return `<article class="card"><div class="tag">${escapeHtml(p.type||'GitHub project')}</div><h3>${escapeHtml(p.name)}</h3><p>${escapeHtml(p.description||'A project from the WahidSites GitHub portfolio.')}</p><div class="project-meta">${tags}</div><a class="card-link" href="${safeUrl(p.url)}" target="_blank" rel="noopener">Explore project ↗</a></article>`;
 }
+function escapeHtml(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function safeUrl(u='https://github.com/wahidsites'){try{const x=new URL(u);return ['https:','http:'].includes(x.protocol)?x.href:'#'}catch{return '#'}}
 async function loadProjects(){
- const grid=document.querySelector('#projectGrid'); if(!grid)return;
- const status=document.querySelector('#projectStatus');
+ const grid=$('#projectGrid'); if(!grid)return;
+ let items=[...knownProjects];
  try{
-  const res=await fetch(`https://api.github.com/users/${USER}/repos?per_page=100&sort=updated`);
-  if(!res.ok)throw new Error('GitHub API unavailable');
-  const repos=(await res.json()).filter(r=>!r.fork);
-  repos.sort((a,b)=>(known[b.name]?1:0)-(known[a.name]?1:0)||new Date(b.updated_at)-new Date(a.updated_at));
-  grid.innerHTML=repos.map(card).join('')||'<div class="empty">No public repositories found.</div>';
-  if(status)status.textContent=`Showing ${repos.length} public repositories · Synced from GitHub`;
-  const count=document.querySelector('#repoCount');if(count)count.textContent=repos.length;
-  const input=document.querySelector('#projectSearch');
-  input?.addEventListener('input',()=>{const q=input.value.toLowerCase();document.querySelectorAll('.project-card').forEach(c=>c.hidden=!c.dataset.search.includes(q));});
- }catch(e){
-  const fallback=Object.entries(known).map(([name,k])=>({name,html_url:`https://github.com/${USER}/${name}`,homepage:k.live,language:k.category,description:k.description,updated_at:0}));
-  grid.innerHTML=fallback.map(card).join('');
-  if(status)status.textContent='Showing known portfolio projects · GitHub live sync is temporarily unavailable';
-  const input=document.querySelector('#projectSearch');
-  input?.addEventListener('input',()=>{const q=input.value.toLowerCase();document.querySelectorAll('.project-card').forEach(c=>c.hidden=!c.dataset.search.includes(q));});
- }
+  const res=await fetch('https://api.github.com/users/wahidsites/repos?per_page=100&sort=updated');
+  if(res.ok){
+   const repos=await res.json();
+   const filtered=repos.filter(r=>!r.fork&&!['wahidsites.github.io'].includes(r.name.toLowerCase()));
+   for(const r of filtered){
+    if(items.some(p=>p.name.toLowerCase()===r.name.toLowerCase()))continue;
+    items.push({name:r.name,type:r.language||'GitHub repository',description:r.description||'A public project from the WahidSites GitHub account.',url:r.html_url,tags:[r.language||'GitHub',r.private?'Private':'Open source']});
+   }
+  }
+ }catch(e){console.info('GitHub project sync unavailable; showing featured projects.');}
+ const q=($('#projectSearch')?.value||'').toLowerCase();
+ const visible=items.filter(p=>(p.name+' '+p.type+' '+p.description+' '+(p.tags||[]).join(' ')).toLowerCase().includes(q));
+ grid.innerHTML=visible.length?visible.map(projectCard).join(''):'<div class="empty">No projects match that search.</div>';
+ const count=$('#repoCount');if(count)count.textContent=items.length;
+ const status=$('#projectStatus');if(status)status.textContent='Featured work and public repositories. New public repositories are added automatically when GitHub is reachable.';
 }
-document.addEventListener('DOMContentLoaded',()=>{
- const menu=document.querySelector('.menu'),links=document.querySelector('.navlinks');
- menu?.addEventListener('click',()=>links.classList.toggle('open'));
- const page=location.pathname.split('/').pop()||'index.html';
- document.querySelectorAll('.navlinks a').forEach(a=>{if(a.getAttribute('href')===page)a.classList.add('active')});
- loadProjects();
+if($('#projectGrid'))loadProjects();
+$('#projectSearch')?.addEventListener('input',loadProjects);
+const contactForm=$('#contactForm');
+if(contactForm)contactForm.addEventListener('submit',e=>{
+ e.preventDefault();
+ const d=new FormData(contactForm);
+ const subject=encodeURIComponent('WahidSites project enquiry — '+(d.get('name')||'New enquiry'));
+ const body=encodeURIComponent(`Name: ${d.get('name')}\nEmail: ${d.get('email')}\nWhatsApp: ${d.get('phone')||'Not provided'}\nProject type: ${d.get('type')}\n\nProject details:\n${d.get('details')}`);
+ window.location.href=`mailto:abdulwahiddd801@gmail.com?subject=${subject}&body=${body}`;
 });
